@@ -1,19 +1,29 @@
 const restful = require('node-restful')
 const mongoose = restful.mongoose
 
+const information = new mongoose.Schema({
+    key: { type: String, require: true },
+    value: { type: String, require: true }
+})
+
+const product = new mongoose.Schema({
+    name: { type: String, require: true },
+    price: { type: String, require: true },
+    information: [information]
+})
+
 const adress = new mongoose.Schema({
     street: { type: String, require: true },
-    email: [],
+    city: { type: String, require: true },
+    state: { type: String, require: true },
     number: { type: Number, require: false },
-    createdAt: { type: Date, default: Date.now }
 })
 
 const vendor = new mongoose.Schema({
     name: { type: String, require: true },
-    email: [],
-    password: { type: String, require: true },
-    done: { type: Boolean, require: true, default: false },
-    createdAt: { type: Date, default: Date.now }
+    img: { data: Buffer, contentType: String, require: false },
+    adress: adress,
+    products: [product]
 })
 
 module.exports = restful.model('Vendor', vendor)

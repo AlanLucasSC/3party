@@ -11,7 +11,7 @@ const user= new mongoose.Schema({
     email: { type: String, require: true },
     password: { type: String, require: true },
     role: { type: Number, require: true, default: 0 },
-    user: { type: Number, require: true, default: 0 },
+    vendor: { type: Number, require: false, default: 0 },
     information: [ information ]
 
     //done: { type: Boolean, require: true, default: false },
