@@ -8,15 +8,12 @@ const information = new mongoose.Schema({
     value: { type: String, require: true }
 })
 
-const user= new mongoose.Schema({
+const user = new mongoose.Schema({
     name: { type: String, require: true },
     email: { type: String, require: true, index: { unique: true } },
     password: { type: String, require: true },
-    vendor: { type: Number, require: false},
+    vendor: { type: String, require: false},
     information: [ information ]
-
-    //done: { type: Boolean, require: true, default: false },
-    //createdAt: { type: Date, default: Date.now }
 })
 
 user.pre('save', function(next) {
