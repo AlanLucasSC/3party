@@ -1,7 +1,7 @@
 const restful = require('node-restful')
+const passwordHash = require('password-hash')
 const mongoose = restful.mongoose
-    bcrypt = require('bcrypt'),
-    SALT_WORK_FACTOR = 10;
+
 
 const information = new mongoose.Schema({
     key: { type: String, require: true },
@@ -20,24 +20,16 @@ const user= new mongoose.Schema({
 })
 
 user.pre('save', function(next) {
-    var user = this;
+    const user = this;
 
     // only hash the password if it has been modified (or is new)
     if (!user.isModified('password')) return next();
 
-    // generate a salt
-    bcrypt.genSalt(SALT_WORK_FACTOR, function(err, salt) {
-        if (err) return next(err);
+    //generate a hash
+    const hash = passwordHash.generate(user.password);
+    user.password = hash;
 
-        // hash the password using our new salt
-        bcrypt.hash(user.password, salt, function(err, hash) {
-            if (err) return next(err);
-
-            // override the cleartext password with the hashed one
-            user.password = hash;
-            next();
-        });
-    });
+    next();
 });
 
 module.exports = restful.model('User', user)

@@ -1,6 +1,5 @@
 const express = require('express')
-const bcrypt = require('bcrypt'),
-    SALT_WORK_FACTOR = 10;
+const passwordHash = require('password-hash')
 
 module.exports = function(server) {
     
@@ -22,7 +21,7 @@ module.exports = function(server) {
     router.get('/compare/:hash/:password', function(req, res, next) { 
         const password = req.params.password;
         const hash = req.params.hash;
-        const resp = bcrypt.compareSync(password, hash);
+        const resp = passwordHash.verify(password, hash);
 
         res.json({
             resp: resp
