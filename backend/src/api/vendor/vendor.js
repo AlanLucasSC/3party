@@ -11,7 +11,8 @@ const coupon = new mongoose.Schema({
     type: { type: String, required: true, uppercase: true, enum: ['PORCENTAGEM', 'DINHEIRO'] },
     start: { type: Date, require: true},
     end: { type: Date, require: true},
-    name: { type: String, require: false }
+    name: { type: String, require: false },
+    status: { type: String, required: true, uppercase: true, enum: ['ABERTO', 'RESTRITO'] }
 })
 
 const product = new mongoose.Schema({

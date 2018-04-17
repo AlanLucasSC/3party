@@ -19,6 +19,10 @@ module.exports = function(server) {
     const type = require('../api/type/typeService')
     type.register(router, '/type')
 
+    //Bundle
+    const bundle = require('../api/bundle/bundleService')
+    bundle.register(router, '/bundle')
+
     //Custom routes
     
     //Compare password
