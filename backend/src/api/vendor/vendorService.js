@@ -1,10 +1,10 @@
-const Vendor = require('./vendor')
+const Vendors = require('./vendor')
 
-Vendor.methods(['get', 'post', 'put', 'patch', 'delete'])
-Vendor.updateOptions({new: true, runValidators: true})
+Vendors.methods(['get', 'post', 'put', 'patch', 'delete'])
+Vendors.updateOptions({new: true, runValidators: true})
 
-Vendor.route('products', function(req, res, next){
-    Vendor.find(function (err, query) {
+Vendors.route('products', function(req, res, next){
+    Vendors.find(function (err, query) {
         if (err) {
             res.status(500)
             res.send("Erro interno do servidor")
@@ -22,9 +22,9 @@ Vendor.route('products', function(req, res, next){
     });
 });
 
-Vendor.route('products/:name', function(req, res, next){
+Vendors.route('products/:name', function(req, res, next){
     console.log(req.params.name)
-    Vendor.find(function (err, query) {
+    Vendors.find(function (err, query) {
         if (err) {
             res.status(500)
             res.send("Erro interno do servidor")
@@ -42,4 +42,4 @@ Vendor.route('products/:name', function(req, res, next){
     });
 });
 
-module.exports = Vendor
+module.exports = Vendors

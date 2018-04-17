@@ -12,14 +12,8 @@ const coupon = new mongoose.Schema({
     start: { type: Date, require: true},
     end: { type: Date, require: true},
     name: { type: String, require: false },
+    amount: { type: Number, require: false },
     status: { type: String, required: true, uppercase: true, enum: ['ABERTO', 'RESTRITO'] }
-})
-
-const product = new mongoose.Schema({
-    name: { type: String, require: true },
-    price: { type: String, require: true },
-    information: [information],
-    coupon: [coupon]
 })
 
 const adress = new mongoose.Schema({
@@ -29,10 +23,17 @@ const adress = new mongoose.Schema({
     number: { type: Number, require: false },
 })
 
+const product = new mongoose.Schema({
+    name: { type: String, require: true },
+    price: { type: String, require: true },
+    information: [information],
+    coupon: [coupon],
+    adress: adress
+})
+
 const vendor = new mongoose.Schema({
     name: { type: String, require: true },
     img: { data: Buffer, contentType: String, require: false },
-    adress: adress,
     products: [product]
 })
 

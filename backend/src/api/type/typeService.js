@@ -1,6 +1,6 @@
-const Type = require('./type')
+const Types = require('./type')
 
-Type.methods(['get', 'post', 'put', 'patch', 'delete'])
-Type.updateOptions({new: true, runValidators: true})
+Types.methods(['get', 'post', 'put', 'patch', 'delete'])
+Types.updateOptions({new: true, runValidators: true})
 
-module.exports = Type
+module.exports = Types
