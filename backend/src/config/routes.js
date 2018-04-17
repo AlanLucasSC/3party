@@ -15,6 +15,10 @@ module.exports = function(server) {
     const vendor = require('../api/vendor/vendorService')
     vendor.register(router, '/vendor')
 
+    //Type
+    const type = require('../api/type/typeService')
+    type.register(router, '/type')
+
     //Custom routes
     
     //Compare password
