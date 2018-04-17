@@ -5,7 +5,8 @@ const solicitation = new mongoose.Schema({
     vendor: { type: String, require: true },
     product: { type: String, require: true },
     coupon: { type: Number, require: true },
-    status: { type: String, require: true, default: 'ABERTO', uppercase: true, enum: ['ABERTO', 'ACEITO', 'NEGADO'] }
+    status: { type: String, require: true, default: 'ABERTO', uppercase: true, enum: ['ABERTO', 'ACEITO', 'NEGADO'] },
+    end: { type: Date, require: true, default: Date.now }
 })
 
 const event = new mongoose.Schema({
