@@ -23,6 +23,10 @@ module.exports = function(server) {
     const bundle = require('../api/bundle/bundleService')
     bundle.register(router, '/bundle')
 
+    //Bundle
+    const event = require('../api/event/eventService')
+    event.register(router, '/event')
+
     //Custom routes
     
     //Compare password
