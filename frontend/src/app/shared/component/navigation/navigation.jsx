@@ -21,9 +21,6 @@ export default props => (
                         <a className="nav-link js-scroll-trigger" href="#about">Sobre</a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link js-scroll-trigger" href="#team">Equipe</a>
-                    </li>
-                    <li className="nav-item">
                         <a className="nav-link js-scroll-trigger" href="#contact">Login</a>
                     </li>
                     <li className="nav-item">

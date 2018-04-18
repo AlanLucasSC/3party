@@ -2,11 +2,20 @@
 import React from 'react'
 
 //Appliction file
-import Layout from '../shared/container/layout/layout'
 import Header from '../shared/component/header/header'
+import Service from './service/service'
+import PortfolioGrid from './portfolioGrid/portfolioGrid'
+import About from './about/about'
+import Contact from './contact/contact'
+import Modal from './modal/modal'
 
 export default props => (
-    <Layout >
-        <Header/>
-    </Layout>
+    <div>
+        <Header />
+        <Service />
+        <PortfolioGrid />
+        <About />
+        <Contact />
+        <Modal />
+    </div>
 )
