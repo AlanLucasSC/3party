@@ -1,4 +1,4 @@
-import { login } from '../effects/authEffects'
+import { login } from '../../effects/auth/login'
 
 export const changeEmail = event => ({
     type: '[AUTH] EMAIL_CHANGED',

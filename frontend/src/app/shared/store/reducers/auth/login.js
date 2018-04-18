@@ -1,10 +1,10 @@
-import * as model from '../../models/user'
+import * as model from '../../../models/user'
 
 const INITIAL_STATE = {
     loading: false,
     loaded: false,
     failed: false,
-    page: '/login',
+    page: '/home',
     email: '',
     password: '',
     user: model.user

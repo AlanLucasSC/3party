@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-import { redirect } from '../actions/authAction'
+import { redirect } from '../../actions/auth/login'
 
 const URL = 'http://localhost:3003/api/auth'
 

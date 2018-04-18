@@ -6,7 +6,7 @@ import { bindActionCreators } from 'redux'
 //Application file
 import Navigation from '../../component/navigation/navigation'
 import Footer from '../../component/footer/footer'
-import { doLogout } from '../../store/actions/authAction'
+import { doLogout } from '../../store/actions/auth/login'
 
 class Layout extends React.Component {
     constructor(props) {

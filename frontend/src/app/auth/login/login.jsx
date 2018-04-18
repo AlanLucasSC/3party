@@ -6,7 +6,7 @@ import { Subject } from 'rxjs'
 import { browserHistory } from 'react-router'
 
 //Application file
-import { changeEmail, changePassword, redirect, doLogin } from '../../shared/store/actions/authAction'
+import { changeEmail, changePassword, redirect, doLogin } from '../../shared/store/actions/auth/login'
 import { ValidateEmail, ValidatePassword, ValidateLogin } from '../../shared/component/validationService'
 import Submit from '../../shared/component/button/submitLogin'
 
