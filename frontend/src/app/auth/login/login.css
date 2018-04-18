@@ -1,0 +1,28 @@
+.login-label {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.login-title {
+  margin-top: 0;
+  text-align: center;
+}
+
+.login-registerLink {
+  margin-top: 15px;
+  font-weight: bold;
+  text-align: center;
+  display: block;
+  font-size: 1.2em;
+  color: #87bcd3;
+}
+
+.login-registerLink:hover {
+  color: #869ba6;
+}
+
+.login-submitBtn {
+  width: 100%;
+  padding: 1em;
+}
