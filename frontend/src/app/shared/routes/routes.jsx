@@ -10,7 +10,7 @@ import Information from '../../information/information'
 export default props => (
     <Router history={ hashHistory }>
         <Route exac path='login' component={ Login }/>
-        <Route exac path='Information' component={ Information }/>
-        <Redirect from='*' to='login' />
+        <Route exac path='home' component={ Information }/>
+        <Redirect from='*' to='home' />
     </Router>
 )

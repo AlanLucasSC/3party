@@ -1,15 +1,8 @@
 import axios from 'axios'
 
-import { redirect } from '../../actions/auth/login'
+import { redirect } from '../../actions/app/app.js'
 
 const URL = 'http://localhost:3003/api/auth'
-
-/*
-export const changePassword = event => ({
-    type: '[AUTH] DO_LOGIN',
-    payload: 'Funcionou !!!'
-})
-*/
 
 export const login = (email, password) => {
     return (dispatch) => {

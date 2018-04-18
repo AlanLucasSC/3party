@@ -10,11 +10,6 @@ export const changePassword = event => ({
     payload: event.target.value
 })
 
-export const redirect = page => ({
-    type: '[AUTH] REDIRECT',
-    payload: page
-})
-
 export const doLogin = (email, password) => {
     return [{
         type: '[AUTH] DO_LOGIN'

@@ -2,12 +2,14 @@
 import { combineReducers } from 'redux'
 
 //Application files
-//import todoReducer from '../todo/todoReducer'
 import login from './reducers/auth/login'
+import register from './reducers/auth/register'
+import app from './reducers/app/app'
 
 const rootReducer = combineReducers({
-    //todo: todoReducer,
-    login: login
+    app: app,
+    login: login,
+    register: register,
 })
 
 export default rootReducer
