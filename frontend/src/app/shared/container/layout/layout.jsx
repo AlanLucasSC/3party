@@ -4,8 +4,8 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
 //Application file
-import Header from '../../component/header/header'
 import Navigation from '../../component/navigation/navigation'
+import Footer from '../../component/footer/footer'
 import { doLogout } from '../../store/actions/authAction'
 
 class Layout extends React.Component {
@@ -18,6 +18,7 @@ class Layout extends React.Component {
             <div>
                 <Navigation userEmail={ this.props.email } logout={ this.props.doLogout }/>
                 { this.props.children }
+                <Footer />
             </div>
         )
     }

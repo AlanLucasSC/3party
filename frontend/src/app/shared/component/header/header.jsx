@@ -5,12 +5,13 @@ import React from 'react'
 import ProfileActionBar from '../profileActionBar/profileActionBar'
 
 export default props => (
-    <div className='header'>
-        <a href='/#/home' className="header-logo">
-            <img src="/assets/images/logo_az_dark.png"/>
-        </a>
-        <div className="header-profileBarWrapper">
-            <ProfileActionBar userEmail={ props.userEmail } logout={ props.logout }/>
+    <header className="masthead">
+      <div className="container">
+        <div className="intro-text">
+          <div className="intro-lead-in">Bem Vindo ao Site!</div>
+          <div className="intro-heading text-uppercase">Prazer em conhecê-lo</div>
+          <a className="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Saiba Mais</a>
         </div>
-    </div>
+      </div>
+    </header>
 )

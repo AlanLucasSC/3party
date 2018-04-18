@@ -3,5 +3,13 @@
     opacity: 0.75;
 }
 .masthead {
-    background-image: url("./img/cerimonia.jpg") !important;
+    background-image: url("../img/cerimonia.jpg") !important;
+}
+
+.footer {
+    background-color: #252729 !important;
+}
+
+.copyright{
+    color: white;
 }
