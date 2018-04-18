@@ -1,6 +1,6 @@
-const Bundle = require('./bundle')
+const Bundles = require('./bundle')
 
-Bundle.methods(['get', 'post', 'put', 'patch', 'delete'])
-Bundle.updateOptions({new: true, runValidators: true})
+Bundles.methods(['get', 'post', 'put', 'patch', 'delete'])
+Bundles.updateOptions({new: true, runValidators: true})
 
-module.exports = Bundle
+module.exports = Bundles

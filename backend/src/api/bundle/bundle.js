@@ -7,6 +7,7 @@ const coupon = new mongoose.Schema({
     start: { type: Date, require: false},
     end: { type: Date, require: false},
     name: { type: String, require: false },
+    amount: { type: Number, require: false },
     status: { type: String, required: true, uppercase: true, enum: ['ABERTO', 'RESTRITO'] }
 })
 
