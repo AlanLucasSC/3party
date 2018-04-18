@@ -7720,7 +7720,7 @@ jQuery.extend( {
 	},
 
 	propFix: {
-		"for": "htmlFor",
+		"for": "for",
 		"class": "className"
 	}
 } );

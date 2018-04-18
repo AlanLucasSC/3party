@@ -11,25 +11,25 @@ export default props => (
             </div>
             <div className="row">
                 <div className="col-lg-12">
-                    <form id="contactForm" name="sentMessage" novalidate>
+                    <form id="contactForm" name="sentMessage">
                         <div className="row">
                             <div className="col-md-6">
                                 <div className="form-group">
-                                    <input className="form-control" id="name" type="text" placeholder="Your Name *" required data-validation-required-message="Please enter your name."/>
+                                    <input className="form-control" id="nameContact" type="text" placeholder="Your Name *" required data-validation-required-message="Please enter your name."/>
                                     <p className="help-block text-danger"></p>
                                 </div>
                                 <div className="form-group">
-                                    <input className="form-control" id="email" type="email" placeholder="Your Email *" required data-validation-required-message="Please enter your email address."/>
+                                    <input className="form-control" id="emailContact" type="email" placeholder="Your Email *" required data-validation-required-message="Please enter your email address."/>
                                     <p className="help-block text-danger"></p>
                                 </div>
                                 <div className="form-group">
-                                    <input className="form-control" id="phone" type="tel" placeholder="Your Phone *" required data-validation-required-message="Please enter your phone number."/>
+                                    <input className="form-control" id="phoneContact" type="tel" placeholder="Your Phone *" required data-validation-required-message="Please enter your phone number."/>
                                     <p className="help-block text-danger"></p>
                                 </div>
                             </div>
                             <div className="col-md-6">
                                 <div className="form-group">
-                                    <textarea className="form-control" id="message" placeholder="Your Message *" required data-validation-required-message="Please enter a message."></textarea>
+                                    <textarea className="form-control" id="messageContact" placeholder="Your Message *" required data-validation-required-message="Please enter a message."></textarea>
                                     <p className="help-block text-danger"></p>
                                 </div>
                             </div>

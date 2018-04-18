@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default props => (
-    <div className="modal fade" id="myModal" tabindex="0" role="dialog" aria-hidden="true">
+    <div className="modal fade" id="myModal" role="dialog" aria-hidden="true">
         <div className="modal-dialog">
             <div className="modal-content">
                 <div className="modal-footer">
@@ -12,11 +12,11 @@ export default props => (
                 <div className="modal-body">
                     <form action="/action_page.php">
                         <div className="form-group">
-                            <label for="email">Email address:</label>
+                            <label htmlFor="email">Email address:</label>
                             <input type="email" className="form-control" id="email"/>
                         </div>
                         <div className="form-group">
-                            <label for="pwd">Password:</label>
+                            <label htmlFor="pwd">Password:</label>
                             <input type="password" className="form-control" id="pwd"/>
                         </div>
                         <div className="checkbox">

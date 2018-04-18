@@ -14,7 +14,7 @@ export default props => (
                     <ul className="timeline">
                         <li>
                             <div className="timeline-image">
-                                <img className="rounded-circle img-fluid" src="img/about/1.jpg" alt=""/>
+                                <img className="rounded-circle img-fluid" src="assets/img/about/1.jpg" alt=""/>
                             </div>
                             <div className="timeline-panel">
                                 <div className="timeline-heading">
@@ -28,7 +28,7 @@ export default props => (
                         </li>
                         <li className="timeline-inverted">
                             <div className="timeline-image">
-                                <img className="rounded-circle img-fluid" src="img/about/2.jpg" alt=""/>
+                                <img className="rounded-circle img-fluid" src="assets/img/about/2.jpg" alt=""/>
                             </div>
                             <div className="timeline-panel">
                                 <div className="timeline-heading">
@@ -42,7 +42,7 @@ export default props => (
                         </li>
                         <li>
                             <div className="timeline-image">
-                                <img className="rounded-circle img-fluid" src="img/about/3.jpg" alt=""/>
+                                <img className="rounded-circle img-fluid" src="assets/img/about/3.jpg" alt=""/>
                             </div>
                             <div className="timeline-panel">
                                 <div className="timeline-heading">
@@ -56,7 +56,7 @@ export default props => (
                         </li>
                         <li className="timeline-inverted">
                             <div className="timeline-image">
-                                <img className="rounded-circle img-fluid" src="img/about/4.jpg" alt=""/>
+                                <img className="rounded-circle img-fluid" src="assets/img/about/4.jpg" alt=""/>
                             </div>
                             <div className="timeline-panel">
                                 <div className="timeline-heading">
