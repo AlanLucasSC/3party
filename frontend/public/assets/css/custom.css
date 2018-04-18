@@ -13,3 +13,12 @@
 .copyright{
     color: white;
 }
+
+button#submit{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.checkbox{
+    text-align: center;
+}
