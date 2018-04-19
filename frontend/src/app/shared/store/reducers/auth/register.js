@@ -2,7 +2,7 @@ const INITIAL_STATE = {
     loading: false,
     loaded: false,
     failed: false,
-    resgister: false,
+    register: false,
     email: '',
     password: '',
     name: ''
@@ -23,7 +23,10 @@ export default (state = INITIAL_STATE, action) => {
             return { ...state, password: action.payload }
 
         case '[REGISTER] DO_REGISTER_SUCCESS':
-            return { ...state, resgister: action.payload }
+            return { ...state, register: action.payload }
+        
+        case '[REGISTER] DO_REGISTER_FAIL':
+            return { ...state, failed: action.payload }
 
         default: 
             return state

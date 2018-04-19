@@ -2,17 +2,17 @@ const restful = require('node-restful')
 const mongoose = restful.mongoose
 
 const coupon = new mongoose.Schema({
-    discount: { type: Number, require: true },
-    type: { type: String, required: true, uppercase: true, enum: ['PORCENTAGEM', 'DINHEIRO'] },
-    start: { type: Date, require: false},
-    end: { type: Date, require: false},
-    name: { type: String, require: false },
-    amount: { type: Number, require: false },
-    status: { type: String, required: true, uppercase: true, enum: ['ABERTO', 'RESTRITO'] }
+    discount: { type: Number, required: true },
+    type: { type: String, requiredd: true, uppercase: true, enum: ['PORCENTAGEM', 'DINHEIRO'] },
+    start: { type: Date, required: false},
+    end: { type: Date, required: false},
+    name: { type: String, required: false },
+    amount: { type: Number, required: false },
+    status: { type: String, requiredd: true, uppercase: true, enum: ['ABERTO', 'RESTRITO'] }
 })
 
 const bundle = new mongoose.Schema({
-    products: [{ type: Number, require: true }],
+    products: [{ type: Number, required: true }],
     coupon: coupon
 })
 

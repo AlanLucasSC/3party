@@ -2,8 +2,8 @@ const restful = require('node-restful')
 const mongoose = restful.mongoose
 
 const type = new mongoose.Schema({
-    name: [{ type: String, require: true }],
-    key: { type: String, require: true }
+    name: [{ type: String, required: true }],
+    key: { type: String, required: true }
 })
 
 module.exports = restful.model('Type', type)

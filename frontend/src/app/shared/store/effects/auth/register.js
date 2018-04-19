@@ -21,5 +21,14 @@ export const register = (name, email, password) => {
                     })
                 }
             )
+            .catch(
+                resp => {
+                    console.log(resp)
+                    return dispatch({
+                        type: '[REGISTER] DO_REGISTER_FAIL',
+                        payload: true
+                    })
+                }
+            );
     }
 }
