@@ -1,23 +1,23 @@
 import { login } from '../../effects/auth/login'
 
 export const changeEmail = event => ({
-    type: '[AUTH] EMAIL_CHANGED',
+    type: '[LOGIN] EMAIL_CHANGED',
     payload: event.target.value
 })
 
 export const changePassword = event => ({
-    type: '[AUTH] PASSWORD_CHANGED',
+    type: '[LOGIN] PASSWORD_CHANGED',
     payload: event.target.value
 })
 
 export const doLogin = (email, password) => {
     return [{
-        type: '[AUTH] DO_LOGIN'
+        type: '[LOGIN] DO_LOGIN'
     }, login(email, password)]
 }
 
 export const doLogoutSuccess = () => ({
-    type: '[AUTH] DO_LOGOUT_SUCCESS',
+    type: '[LOGIN] DO_LOGOUT_SUCCESS',
     payload: {
         email: '',
         isLoggedIn: false
@@ -26,6 +26,6 @@ export const doLogoutSuccess = () => ({
 
 export const doLogout = () => {
     return [{
-        type: '[AUTH] DO_LOGOUT'
+        type: '[LOGIN] DO_LOGOUT'
     }, doLogoutSuccess(), redirect('/login')]
 }

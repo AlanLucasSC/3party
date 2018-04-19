@@ -2,7 +2,7 @@ import axios from 'axios'
 
 import { redirect } from '../../actions/app/app.js'
 
-const URL = 'http://localhost:3003/api/auth'
+const URL = 'http://localhost:3003/api/user'
 
 export const login = (email, password) => {
     return (dispatch) => {

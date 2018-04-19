@@ -1,4 +1,4 @@
 export const redirect = page => ({
-    type: '[AUTH] REDIRECT',
+    type: '[APP] REDIRECT',
     payload: page
 })

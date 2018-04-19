@@ -83,15 +83,6 @@ class Login extends React.Component{
     }
 }
 
-//or Arrow function 
-/*
-export default props => (
-    <div>
-        Hello World
-    </div>
-)
-*/
-
 //State
 const mapStateToProps = state => ({
     email: state.login.email,
