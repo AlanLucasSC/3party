@@ -32,7 +32,7 @@ class Login extends React.Component{
                             <Error if={ this.props.failed }>
                                 Login
                                 <br/>
-                                Por favor, tente logar denovo
+                                { this.props.message }
                             </Error>
                             <Email 
                                 email={ this.props.email }
@@ -62,7 +62,8 @@ class Login extends React.Component{
 const mapStateToProps = state => ({
     email: state.login.email,
     password: state.login.password,
-    failed: state.login.failed
+    failed: state.login.failed,
+    message: state.login.message
 })
 
 //Actions

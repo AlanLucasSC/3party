@@ -1,6 +1,6 @@
 const INITIAL_STATE = {
     page: '/home',
-    userType: 'VISITOR'
+    userType: 'VISITOR',
 }
 
 const URL = "http://localhost:8080/#"

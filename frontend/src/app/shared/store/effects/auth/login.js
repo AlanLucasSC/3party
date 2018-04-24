@@ -22,6 +22,7 @@ export const login = (email, password) => {
                     else {
                         return dispatch({
                             type: '[LOGIN] FETCHING_FAIL',
+                            payload: 'Email não encontrado'
                         })
                     }
                 }
@@ -58,6 +59,7 @@ export const pswCompare = (hash, password, data) => {
                     else {
                         return dispatch({
                             type: '[LOGIN] DO_LOGIN_FAIL',
+                            payload: 'Senha errada'
                         })
                     }
                 }

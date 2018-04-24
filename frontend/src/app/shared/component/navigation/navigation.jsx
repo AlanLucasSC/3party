@@ -4,7 +4,7 @@ export default props => (
     <nav className="navbar navbar-expand-lg navbar-dark fixed-top header" id="mainNav">
     	<img src=""/>
         <div className="container">
-            <a className="navbar-brand js-scroll-trigger" href="#page-top">Terceira Festa</a>
+            <a className="navbar-brand js-scroll-trigger" href="#page-top">3Party</a>
             <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" 
             data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 Menu

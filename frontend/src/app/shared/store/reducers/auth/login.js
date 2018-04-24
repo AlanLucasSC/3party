@@ -4,6 +4,7 @@ const INITIAL_STATE = {
     loading: false,
     loaded: false,
     failed: false,
+    message: '',
     email: '',
     password: '',
     user: ''
@@ -26,6 +27,16 @@ export default (state = INITIAL_STATE, action) => {
                 loading: true,
                 loaded: false,
                 failed: false
+            }
+        }
+
+        case '[LOGIN] FETCHING_FAIL':{
+            return {
+                ...state, 
+                loading: false,
+                loaded: false,
+                failed: true,
+                message: action.payload
             }
         }
 
@@ -57,6 +68,7 @@ export default (state = INITIAL_STATE, action) => {
                 loading: false,
                 loaded: false,
                 failed: true,
+                message: action.payload
             }
         }
 
