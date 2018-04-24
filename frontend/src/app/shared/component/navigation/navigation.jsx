@@ -22,10 +22,10 @@ export default props => (
                         <a className="nav-link js-scroll-trigger" href="#about">Sobre</a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link js-scroll-trigger" href="#contact">Login</a>
+                        <a className="nav-link" data-toggle="modal" data-target="#loginModal" href="#login">Login</a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" data-toggle="modal" data-target="#myModal" href="#register">Cadastro</a>
+                        <a className="nav-link" data-toggle="modal" data-target="#registerModal" href="#register">Cadastro</a>
                     </li>
                 </ul>
             </div>

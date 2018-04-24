@@ -8,16 +8,9 @@ import { browserHistory } from 'react-router'
 //Application file
 import { changeEmail, changePassword, redirect, doLogin } from '../../shared/store/actions/auth/login'
 import { ValidateEmail, ValidatePassword, ValidateLogin } from '../../shared/component/validationService'
-import Submit from '../../shared/component/button/submitLogin'
 
-//Css file
-import './login.css'
-
-//Helpers
-import { history } from '../../shared/utils/history';
-
-//Observables
-const stream = new Subject()
+import { Email, Password, Name, Submit } from '../../shared/component/form'
+import { Success, Error } from '../../shared/component/alert'
 
 //React component
 class Login extends React.Component{
@@ -25,58 +18,40 @@ class Login extends React.Component{
     constructor(props) {
         super(props)
     }
-
-    call() {
-        counter.subscribe(
-            (value) => this.props.changeEmail
-        )
-    }
-
     
 
     render() {
         return (
-            <div className="form-container" id="mainNav">
-                <h2 className="login-title center">AZ LOGIN</h2>
-                <div className="alert alert-info">
-                    <p>Email: admin@az.com</p>
-                    <p>Password: admin</p>
-                </div>
-
-                <div className="error-wrapper">
-                    <ValidateLogin failed={ this.props.failed }>
-                        <label className="error-label">User does not exist</label>
-                    </ValidateLogin>
-                    <ValidateEmail email={ this.props.email }>
-                        <label className="error-label">Email is not in valid format</label>
-                    </ValidateEmail>
-                    <ValidatePassword password={ this.props.password }>
-                        <label className="error-label">Password is required</label>
-                    </ValidatePassword>
-                </div>
-
-                <div role='form' className='todoForm'>
-                    <input 
-                        type="text" 
-                        placeholder="Email" 
-                        className="txt" 
-                        value={ this.props.email }
-                        onChange={ this.props.changeEmail }
-                    />
-                    <input 
-                        type="password" 
-                        placeholder="Password" 
-                        className="txt"
-                        value={ this.props.password }
-                        onChange={ this.props.changePassword }
-                    />
-                    <Submit
-                        email={ this.props.email }
-                        password={ this.props.password }
-                        doLogin={ () => { this.props.doLogin(this.props.email, this.props.password) } }
-                        text={ 'Login' }
-                    >
-                    </Submit>
+            <div className="modal fade" id="loginModal" role="dialog" aria-hidden="true">
+                <div className="modal-dialog">
+                    <div className="modal-content">
+                        <button type="button" className="btn btn-default" data-dismiss="modal">
+                            <i className="fa fa-times" aria-hidden="true"></i>
+                        </button>
+                        <div className="modal-body">
+                            <Error if={ this.props.failed }>
+                                Login
+                                <br/>
+                                Por favor, tente logar denovo
+                            </Error>
+                            <Email 
+                                email={ this.props.email }
+                                changeEmail={ this.props.changeEmail }
+                                validate="login"
+                            />
+                            <Password
+                                password={ this.props.password }
+                                changePassword={ this.props.changePassword }
+                                validate="login"
+                            />
+                            <Submit 
+                                validate="login"
+                                register={ () => { 
+                                    this.props.doLogin(this.props.email, this.props.password) 
+                                } }
+                            >Login</Submit>
+                        </div>
+                    </div>
                 </div>
             </div>
         )

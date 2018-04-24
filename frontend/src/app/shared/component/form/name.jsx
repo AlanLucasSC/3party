@@ -8,7 +8,7 @@ export class Name extends React.Component{
     }
 
     validateName(){
-        const element = $('#user')
+        const element = $('#user'+this.props.validate)
         
         if(this.props.name === ''){
             element.removeClass('true');
@@ -27,7 +27,7 @@ export class Name extends React.Component{
                     <input 
                         type="user" 
                         className={ "form-control "+this.props.validate }
-                        id="user"
+                        id={ "user"+this.props.validate }
                         value={ this.props.name }
                         onChange={ this.props.changeName }
                         onBlur={ this.validateName }

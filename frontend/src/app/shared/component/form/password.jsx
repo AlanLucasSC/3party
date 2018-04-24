@@ -8,7 +8,7 @@ export class Password extends React.Component{
     }
 
     validatePassword(){
-        const element = $('#pwd')
+        const element = $('#pwd'+this.props.validate)
         
         if(this.props.password.length <= 5){
             element.removeClass('true');
@@ -27,7 +27,7 @@ export class Password extends React.Component{
                     <input 
                         type="password" 
                         className={ "form-control "+this.props.validate }
-                        id="pwd"
+                        id={ "pwd"+this.props.validate }
                         value={ this.props.password }
                         onChange={ this.props.changePassword }
                         onBlur={ this.validatePassword }

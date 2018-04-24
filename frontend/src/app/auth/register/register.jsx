@@ -24,7 +24,7 @@ class Register extends React.Component{
 
     render(){
         return (
-            <div className="modal fade" id="myModal" role="dialog" aria-hidden="true">
+            <div className="modal fade" id="registerModal" role="dialog" aria-hidden="true">
                 <div className="modal-dialog">
                     <div className="modal-content">
                         <button type="button" className="btn btn-default" data-dismiss="modal">
@@ -59,7 +59,7 @@ class Register extends React.Component{
                                 register={ () => { 
                                     this.props.register(this.props.name, this.props.email, this.props.password) 
                                 } }
-                            />
+                            >Cadastrar</Submit>
                         </div>
                     </div>
                 </div>

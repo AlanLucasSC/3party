@@ -9,7 +9,7 @@ export class Email extends React.Component{
 
     validateEmail(){
         const valEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-        const element = $('#email')
+        const element = $('#email'+this.props.validate)
         if(!valEmail.test(this.props.email)){
             element.removeClass('true');
             element.addClass('is-invalid');
@@ -27,7 +27,7 @@ export class Email extends React.Component{
                     <input 
                         type="email" 
                         className={ "form-control "+this.props.validate }
-                        id="email"
+                        id={ "email"+this.props.validate }
                         value={ this.props.email }
                         onChange={ this.props.changeEmail }
                         onBlur={ this.validateEmail }

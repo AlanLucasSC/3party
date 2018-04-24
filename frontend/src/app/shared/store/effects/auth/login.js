@@ -12,7 +12,7 @@ export const login = (email, password) => {
                 resp => {
                     if(resp.data.length) {
                         return dispatch({
-                            type: '[AUTH] DO_LOGIN_SUCCESS',
+                            type: '[LOGIN] DO_LOGIN_SUCCESS',
                             payload: {
                                 email: resp.data[0].email,
                                 isLoggedIn: true
@@ -21,7 +21,7 @@ export const login = (email, password) => {
                     }
                     else {
                         return dispatch({
-                            type: '[AUTH] DO_LOGIN_FAIL',
+                            type: '[LOGIN] DO_LOGIN_FAIL',
                         })
                     }
                 }
@@ -29,8 +29,8 @@ export const login = (email, password) => {
             .then(
                 resp => {
                     switch(resp.type) {
-                        case '[AUTH] DO_LOGIN_SUCCESS':
-                            dispatch(redirect('/home'))
+                        case '[LOGIN] DO_LOGIN_SUCCESS':
+                            dispatch(redirect('/dashboard'))
                     }
                 }
             )
