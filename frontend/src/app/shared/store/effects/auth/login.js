@@ -3,19 +3,55 @@ import axios from 'axios'
 import { redirect } from '../../actions/app/app.js'
 
 const URL = 'http://localhost:3003/api/user'
+const COMPARE = 'http://localhost:3003/api/compare'
 
 export const login = (email, password) => {
     return (dispatch) => {
         const request = axios
-            .get(`${URL}?email=${email}&password=${password}`)
+            .get(`${URL}?email=${email}`)
             .then(
                 resp => {
-                    if(resp.data.length) {
+                    if(resp.data.length != 0) {
+                        return dispatch({
+                            type: '[LOGIN] FETCHING_SUCCESS',
+                            payload: {
+                                data: resp.data
+                            }
+                        })
+                    }
+                    else {
+                        return dispatch({
+                            type: '[LOGIN] FETCHING_FAIL',
+                        })
+                    }
+                }
+            )
+            .then(
+                resp => {
+                    switch(resp.type) {
+                        case '[LOGIN] FETCHING_SUCCESS':
+                            console.log(resp.payload)
+                            dispatch(pswCompare(resp.payload.data[0].password, password, resp.payload.data[0]))
+                    }
+                }
+            )
+    }
+}
+
+export const pswCompare = (hash, password, data) => {
+    return (dispatch) => {
+        const request = axios
+            .get(`${COMPARE}/${hash}/${password}`)
+            .then(
+                resp => {
+                    console.log(resp.data.resp)
+                    if(resp.data.resp != false) {
                         return dispatch({
                             type: '[LOGIN] DO_LOGIN_SUCCESS',
                             payload: {
-                                email: resp.data[0].email,
-                                isLoggedIn: true
+                                email: data.email,
+                                isLoggedIn: resp.data.resp,
+                                data: data
                             }
                         })
                     }
@@ -29,7 +65,7 @@ export const login = (email, password) => {
             .then(
                 resp => {
                     switch(resp.type) {
-                        case '[LOGIN] DO_LOGIN_SUCCESS':
+                        case '[LOGIN] COMPARE_SUCCESS':
                             dispatch(redirect('/dashboard'))
                     }
                 }

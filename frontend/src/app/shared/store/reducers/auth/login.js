@@ -6,7 +6,7 @@ const INITIAL_STATE = {
     failed: false,
     email: '',
     password: '',
-    user: model.user
+    user: ''
 }
 
 const URL = "http://localhost:8080/#"
