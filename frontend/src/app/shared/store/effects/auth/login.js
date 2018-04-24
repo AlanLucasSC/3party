@@ -65,7 +65,7 @@ export const pswCompare = (hash, password, data) => {
             .then(
                 resp => {
                     switch(resp.type) {
-                        case '[LOGIN] COMPARE_SUCCESS':
+                        case '[LOGIN] DO_LOGIN_SUCCESS':
                             dispatch(redirect('/dashboard'))
                     }
                 }

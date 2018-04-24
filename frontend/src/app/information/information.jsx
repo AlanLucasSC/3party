@@ -13,9 +13,23 @@ export default props => (
     <div>
         <Header />
         <Service />
+        <Contact />
+        <Modal />
+    </div>
+)
+
+/*
+
+Antigo
+export default props => (
+    <div>
+        <Header />
+        <Service />
         <PortfolioGrid />
         <About />
         <Contact />
         <Modal />
     </div>
 )
+
+*/
