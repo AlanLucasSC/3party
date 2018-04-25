@@ -27,5 +27,5 @@ export const doLogoutSuccess = () => ({
 export const doLogout = () => {
     return [{
         type: '[LOGIN] DO_LOGOUT'
-    }, doLogoutSuccess(), redirect('/login')]
+    }, doLogoutSuccess(), redirect('/login', 'VISITOR')]
 }

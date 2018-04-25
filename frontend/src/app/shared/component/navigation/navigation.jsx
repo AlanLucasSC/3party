@@ -1,34 +1,38 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
-export default props => (
-    <nav className="navbar navbar-expand-lg navbar-dark fixed-top header" id="mainNav">
-    	<img src=""/>
-        <div className="container">
-            <a className="navbar-brand js-scroll-trigger" href="#page-top">3Party</a>
-            <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" 
-            data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                Menu
-                <i className="fa fa-bars"></i>
-            </button>
-            <div className="collapse navbar-collapse" id="navbarResponsive">
-                <ul className="navbar-nav text-uppercase ml-auto">
-                    <li className="nav-item">
-                        <a className="nav-link js-scroll-trigger" href="#services">Serviços</a>
-                    </li>
-                    <li className="nav-item">
-                        <a className="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a>
-                    </li>
-                    <li className="nav-item">
-                        <a className="nav-link js-scroll-trigger" href="#about">Sobre</a>
-                    </li>
-                    <li className="nav-item">
-                        <a className="nav-link" data-toggle="modal" data-target="#loginModal" href="#login">Login</a>
-                    </li>
-                    <li className="nav-item">
-                        <a className="nav-link" data-toggle="modal" data-target="#registerModal" href="#register">Cadastro</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-)
+import ItemNavigation from '../item/itemNavigation'
+
+
+class Navigation extends React.Component{
+
+    constructor(props){
+        super(props)
+    }
+
+    render(){    
+        return (
+            <nav className="navbar navbar-expand-lg navbar-dark fixed-top header" id="mainNav">
+                <img src=""/>
+                <div className="container">
+                    <a className="navbar-brand js-scroll-trigger" href="#page-top">3Party</a>
+                    <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" 
+                    data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                        Menu
+                        <i className="fa fa-bars"></i>
+                    </button>
+                    <div className="collapse navbar-collapse" id="navbarResponsive">
+                        <ItemNavigation userType={ this.props.userType } />
+                    </div>
+                </div>
+            </nav>
+        )
+    }
+}
+
+//State
+const mapStateToProps = state => ({
+    userType: state.app.userType
+})
+
+export default connect(mapStateToProps)(Navigation)

@@ -22,6 +22,12 @@ const adress = new mongoose.Schema({
     city: { type: String, required: true },
     state: { type: String, required: true },
     number: { type: Number, required: false },
+    neighborhood: { type: Number, required: false }
+})
+
+const contact = new mongoose.Schema({
+    key: { type: String, required: true },
+    value: { type: String, required: true }
 })
 
 const product = new mongoose.Schema({
@@ -29,13 +35,16 @@ const product = new mongoose.Schema({
     price: { type: String, required: true },
     information: [information],
     coupon: [coupon],
-    adress: adress
+    adress: adress,
+    contact: [contact]
 })
 
 const vendor = new mongoose.Schema({
     name: { type: String, required: true },
     img: { data: Buffer, contentType: String, required: false },
-    products: [product]
+    products: [product],
+    adress: adress,
+    contact: [contact]
 })
 
 module.exports = restful.model('Vendor', vendor)

@@ -1,4 +1,7 @@
-export const redirect = page => ({
+export const redirect = (page, userType) => ({
     type: '[APP] REDIRECT',
-    payload: page
+    payload: {
+        page: page,
+        userType: userType
+    }
 })

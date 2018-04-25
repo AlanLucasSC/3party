@@ -9,8 +9,12 @@ export default (state = INITIAL_STATE, action) => {
     switch(action.type) {
 
         case '[APP] REDIRECT': {
-            window.location = URL+action.payload
-            return { ...state, page: action.payload }
+            window.location = URL+action.payload.page
+            return { 
+                ...state, 
+                page: action.payload.page,
+                userType: action.payload.userType
+            }
         }
         
         default: 
