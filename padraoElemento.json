@@ -1,0 +1,30 @@
+{name: "Júlio Farias Ltda",
+products: [
+	{
+		name: Salão de Festa;
+		price: 230.00,
+		information: [
+            {
+                key:"Tipo",
+                value:"Local"
+            }
+            {
+                key:"quantidade",
+                value:"300"
+            }
+            {
+                key:"ambiente",
+                value:"climatizado"
+            }
+        ]
+        adress:{
+            street:"Rua Totico de Medeiros",
+            city: "Corumbá",
+            state:"MS",
+            number:"720"
+        }	
+    },
+    {
+        //mais produtos
+    }
+]}
