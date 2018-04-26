@@ -8,6 +8,7 @@ import Login from '../../auth/login/login'
 import Layout from '../container/layout/layout'
 import Information from '../../information/information'
 import Dashboard from '../../dashboard/dashboard'
+import UserProfile from '../../profile/user'
 
 class Routes extends React.Component{
     constructor(props){
@@ -19,6 +20,7 @@ class Routes extends React.Component{
             <Router history={ hashHistory }>
                 <Route exac path='/' component={ Information }/>
                 <Route exac path='/dashboard' component={ Dashboard }/>
+                <Route exac path='/profile' component={ UserProfile }/>
                 <Redirect from='*' to='/' />
             </Router>   
         )

@@ -69,7 +69,7 @@ export const pswCompare = (hash, password, data) => {
                     switch(resp.type) {
                         case '[LOGIN] DO_LOGIN_SUCCESS':
                             $('#loginModal').modal('hide');
-                            dispatch(redirect('/dashboard', 'USER'))
+                            dispatch(redirect('/profile', 'USER'))
                     }
                 }
             )
