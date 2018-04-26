@@ -22,7 +22,7 @@ const adress = new mongoose.Schema({
     city: { type: String, required: true },
     state: { type: String, required: true },
     number: { type: Number, required: false },
-    neighborhood: { type: Number, required: false }
+    neighborhood: { type: String, required: false }
 })
 
 const contact = new mongoose.Schema({
@@ -35,7 +35,7 @@ const product = new mongoose.Schema({
     price: { type: String, required: true },
     information: [information],
     coupon: [coupon],
-    adress: adress,
+    adress: [adress],
     contact: [contact]
 })
 

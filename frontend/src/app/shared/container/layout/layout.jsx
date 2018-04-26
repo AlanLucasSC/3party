@@ -8,6 +8,9 @@ import Navigation from '../../component/navigation/navigation'
 import Footer from '../../component/footer/footer'
 import { doLogout } from '../../store/actions/auth/login'
 
+//Teste -> excluir depois o import, no mapDispatchToProps e no render
+import { products } from '../../store/effects/service/service'
+
 class Layout extends React.Component {
     constructor(props) {
         super(props)
@@ -16,6 +19,7 @@ class Layout extends React.Component {
     render() {
         return (
             <div>
+                { this.props.products() }
                 <Navigation userEmail={ this.props.email } logout={ this.props.doLogout }/>
                 { this.props.children }
                 <Footer />
@@ -29,7 +33,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({ 
-    doLogout
+    doLogout,
+    products
 }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(Layout)
