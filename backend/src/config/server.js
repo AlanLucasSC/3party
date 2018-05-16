@@ -15,4 +15,6 @@ server.listen(port, function() {
     console.log(`BACKEND is running on port ${port}.`)
 })
 
+server.use('/assets', express.static('public'));
+
 module.exports = server

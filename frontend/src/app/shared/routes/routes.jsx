@@ -9,6 +9,7 @@ import Layout from '../container/layout/layout'
 import Information from '../../information/information'
 import Dashboard from '../../dashboard/dashboard'
 import UserProfile from '../../profile/user'
+import Service from '../../service/service'
 
 class Routes extends React.Component{
     constructor(props){
@@ -21,6 +22,7 @@ class Routes extends React.Component{
                 <Route exac path='/' component={ Information }/>
                 <Route exac path='/dashboard' component={ Dashboard }/>
                 <Route exac path='/profile' component={ UserProfile }/>
+                <Route exac path='/products' component={ Service }/>
                 <Redirect from='*' to='/' />
             </Router>   
         )

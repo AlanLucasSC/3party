@@ -36,15 +36,14 @@ const product = new mongoose.Schema({
     information: [information],
     coupon: [coupon],
     adress: [adress],
-    contact: [contact]
+    //contact: [contact]
 })
 
 const vendor = new mongoose.Schema({
     name: { type: String, required: true },
     img: { data: Buffer, contentType: String, required: false },
     products: [product],
-    adress: adress,
-    contact: [contact]
+    //contact: [contact]
 })
 
 module.exports = restful.model('Vendor', vendor)
