@@ -245,13 +245,13 @@ header.masthead .intro-text .intro-heading {
   -moz-transition: all ease 0.5s;
   transition: all ease 0.5s;
   opacity: 0;
-  background: rgba(254, 209, 54, 0.9);
+  background: rgb(113, 112, 109, 0.7);
 }
 
 #portfolio .portfolio-item .portfolio-link .portfolio-hover:hover {
   opacity: 1;
 }
-
+/* Antigo
 #portfolio .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content {
   font-size: 20px;
   position: absolute;
@@ -262,9 +262,41 @@ header.masthead .intro-text .intro-heading {
   text-align: center;
   color: white;
 }
+*/
 
-#portfolio .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content i {
+/* Novo */
+#portfolio .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content {
+  font-size: 20px;
+  position: absolute;
+  width: 100%;
+  height: 20px;
   margin-top: -12px;
+  text-align: center !important;
+  color: white;
+}
+
+#portfolio .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content p{
+  font-size: 15px;
+  margin-left: 10px;
+}
+
+#portfolio .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content .portfolio-hover-add-right{
+  text-align: right;
+}
+
+#portfolio .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content i,
+#portfolio .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content div{
+  margin-top: 25%;
+}
+
+#portfolio .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content p {
+  margin-top: 20px;
+  margin-right: 10px;
+}
+
+.price {
+  margin-top: 80%;
+  margin-right: 10px;
 }
 
 #portfolio .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content h3,
@@ -273,10 +305,8 @@ header.masthead .intro-text .intro-heading {
 }
 
 #portfolio .portfolio-item .portfolio-caption {
-  max-width: 400px;
   margin: 0 auto;
   padding: 25px;
-  text-align: center;
   background-color: #fff;
 }
 
@@ -691,4 +721,8 @@ ul.social-buttons li a {
 
 ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons li a:hover {
   background-color: #fed136;
+}
+
+.card{
+  max-width: 400px;
 }

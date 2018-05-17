@@ -42,3 +42,8 @@ a:link {
     background-color:darkgray;
     color: black;
 }
+
+.img-fluid{
+    height: 200px;
+    width: 100%;
+}
