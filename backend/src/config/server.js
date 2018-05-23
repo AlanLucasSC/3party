@@ -31,7 +31,7 @@ server.listen(port, function() {
     console.log(`BACKEND is running on port ${port}.`)
 })
 
-server.post('/file', upload.single('avatar'), function (req, res, next) {
+server.post('/file', upload.single('image'), function (req, res, next) {
 	console.log(req.file);
 	/*
 		Salvar no banco de dados os dados do arquivo
@@ -41,12 +41,12 @@ server.post('/file', upload.single('avatar'), function (req, res, next) {
 		Responder o cliente
 	*/
 	res.json({
-        resp: 'ok'
-    })
+      resp: 'ok'
+  })
 })
 
 
-//Deixar acessar a pasta public
+//Deixar acessível a pasta public
 server.use('/assets', express.static('public/img/'));
 
 module.exports = server
