@@ -14,7 +14,7 @@ const Users = require('../api/user/user')
 
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, 'public/img')
+    cb(null, 'img/')
   },
   filename: function (req, file, cb) {
   	var ext = file.originalname.substr(file.originalname.lastIndexOf('.') + 1)
@@ -36,7 +36,24 @@ server.listen(port, function() {
 })
 
 server.post('/file', upload.single('image'), function (req, res, next) {
-	console.log(req.file)
+	//console.log(req.file)
+  //console.log(req.file.path)
+
+  /*
+    Comprimir a imagem
+  */
+  var compress_images = require('compress-images'), INPUT_path_to_your_images, OUTPUT_path;
+ 
+  INPUT_path_to_your_images = 'img/*.{jpg,JPG,jpeg,JPEG,png,svg,gif}';
+  OUTPUT_path = 'public/img/';
+  
+  compress_images(INPUT_path_to_your_images, OUTPUT_path, {compress_force: false, statistic: true, autoupdate: true}, false,
+    {jpg: {engine: 'tinify', key: "6ZCbK7yzQwMvxNNtcI7ljqpcvbY8cBRF", command: false}},
+    {png: {engine: 'pngquant', command: ['--quality=20-50']}},
+    {svg: {engine: 'svgo', command: '--multipass'}},
+    {gif: {engine: 'gifsicle', command: ['--colors', '64', '--use-col=web']}}, function(){
+  });
+
 	/*
 		Salvar no banco de dados os dados do arquivo
 	*/
@@ -83,6 +100,6 @@ server.get('/testando/:email', function (req, res, next) {
 
 
 //Deixar acessar a pasta public
-server.use('/assets', express.static('public/img/'));
+server.use('/assets', express.static('public/img'));
 
 module.exports = server
