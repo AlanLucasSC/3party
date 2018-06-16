@@ -2,8 +2,8 @@ import axios from 'axios'
 
 import { redirect } from '../../actions/app/app.js'
 
-const URL = 'http://localhost:3003/api/vendor'
-const COMPARE = 'http://localhost:3003/api/compare'
+const URL = 'http://localhost:4009/api/vendor'
+const COMPARE = 'http://localhost:4009/api/compare'
 
 //criar limite de busca do products
 

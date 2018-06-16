@@ -10,6 +10,7 @@ import Information from '../../information/information'
 import Dashboard from '../../dashboard/dashboard'
 import UserProfile from '../../profile/user'
 import Service from '../../service/service'
+import Files from '../../file/file'
 
 class Routes extends React.Component{
     constructor(props){
@@ -23,6 +24,7 @@ class Routes extends React.Component{
                 <Route exac path='/dashboard' component={ Dashboard }/>
                 <Route exac path='/profile' component={ UserProfile }/>
                 <Route exac path='/products' component={ Service }/>
+                <Route exac path='/file' component={ Files }/>
                 <Redirect from='*' to='/' />
             </Router>   
         )

@@ -2,7 +2,7 @@ import axios from 'axios'
 
 //import { redirect } from '../../actions/app/app.js'
 
-const URL = 'http://localhost:3003/api/user/'
+const URL = 'http://localhost:4009/api/user/'
 
 export const register = (name, email, password) => {
     return (dispatch) => {

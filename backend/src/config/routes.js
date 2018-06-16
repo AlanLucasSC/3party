@@ -23,13 +23,17 @@ module.exports = function(server) {
     const bundle = require('../api/bundle/bundleService')
     bundle.register(router, '/bundle')
 
-    //Bundle
+    //Event
     const event = require('../api/event/eventService')
     event.register(router, '/event')
 
-    //Bundle
+    //Group
     const group = require('../api/group/groupService')
     group.register(router, '/group')
+
+    //Image
+    const image = require('../api/image/imageService')
+    image.register(router, '/image')
 
     //Custom routes
     

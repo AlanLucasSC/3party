@@ -33,6 +33,10 @@ const contact = new mongoose.Schema({
 const product = new mongoose.Schema({
     name: { type: String, required: true },
     price: { type: String, required: true },
+    image: { type: String, required: false, default: 'foto.jpg'},
+    vendor: { type: String, required: false, default: ''},
+    vendor_id: { type: String, required: false, default: ''},
+    rating: { type: Number, required: true, default: 0 },
     information: [information],
     coupon: [coupon],
     adress: [adress],

@@ -1,20 +1,77 @@
 //Inserir no postman
+    #Espaço DI
+        name:Espaço Di
+        products[0][name]:Salão de Festa
+        products[0][price]:230.00
+        products[0][information][0][key]:Tipo
+        products[0][information][0][value]:Local
+        products[0][information][1][key]:Quantidade
+        products[0][information][1][value]:300
+        products[0][information][2][key]:Ambiente
+        products[0][information][2][value]:climatizado
 
-name:Espaço Di
-products[0][name]:Salão de Festa
-products[0][price]:230.00
-products[0][information][0][key]:Tipo
-products[0][information][0][value]:Local
-products[0][information][1][key]:Quantidade
-products[0][information][1][value]:300
-products[0][information][2][key]:Ambiente
-products[0][information][2][value]:climatizado
+        products[0][adress][street]:Rua Totico de Medeiros
+        products[0][adress][city]:Corumbá
+        products[0][adress][state]:MS
+        products[0][adress][number]:720
+        products[0][adress][neighborhood]: Popular Velha
 
-products[0][adress][street]:Rua Totico de Medeiros
-products[0][adress][city]:Corumbá
-products[0][adress][state]:MS
-products[0][adress][number]:720
-products[0][adress][neighborhood]: Popular Velha
+    #Sergio Martins Fotografo
+        name: Sergio Martins
+        products[0][name]: Foto para Casamento
+        products[0][price]: 230.00
+
+        products[0][information][0][key]: Tipo
+        products[0][information][0][value]: Fotografia
+        products[0][information][1][key]: Quantidade
+        products[0][information][1][value]: 120
+        products[0][information][2][key]: Catálogo
+        products[0][information][2][value]: Impresso
+        products[0][information][3][key]: Prazo
+        products[0][information][3][value]: 14 dias
+
+        products[0][adress][street]: Rua Comandante Wanderley
+        products[0][adress][city]: Corumbá
+        products[0][adress][state]: MS
+        products[0][adress][number]: 283
+        products[0][adress][neighborhood]: Universitário
+
+    #Vilalva Decoração
+        name: Vilalva Decoração
+        products[0][name]: Altar
+        products[0][price]:450.00
+
+        products[0][information][0][key]:Tipo
+        products[0][information][0][value]:Decoração
+        products[0][information][1][key]:Quantidade
+        products[0][information][1][value]:1
+
+        products[0][adress][street]:Rua Antônio Maria Coelho
+        products[0][adress][city]:Campo Grande
+        products[0][adress][state]:MS
+        products[0][adress][number]:368
+        products[0][adress][neighborhood]:Centro
+
+
+        products[1][name]: Mesa
+        products[1][price]: 15.00
+
+        products[1][information][0][key]:Tipo
+        products[1][information][0][value]:Decoração
+        products[1][information][1][key]:Quantidade
+        products[1][information][1][value]:1
+        products[1][information][2][key]:Material
+        products[1][information][2][value]:Metal
+
+        products[2][name]: Iluminação
+        products[2][price]: 200.00
+
+        products[2][information][0][key]:Tipo
+        products[2][information][0][value]:Decoração
+        products[2][information][1][key]:Quantidade de Iluminária
+        products[2][information][1][value]:8
+        products[2][information][2][key]:Material
+        products[2][information][2][value]:Cristal
 
 
 //Salão de Festa
@@ -220,7 +277,7 @@ products: [
                     value:"impresso"
                 }
                 {
-                    key:"prazo",
+                    key:"Prazo",
                     value:"14 dias"
                 }
             ]

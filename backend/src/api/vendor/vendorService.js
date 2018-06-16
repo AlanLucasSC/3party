@@ -1,4 +1,6 @@
 const Vendors = require('./vendor')
+const objectAssign = require('object-assign');
+
 
 Vendors.methods(['get', 'post', 'put', 'patch', 'delete'])
 Vendors.updateOptions({new: true, runValidators: true})
@@ -14,6 +16,9 @@ Vendors.route('products', function(req, res, next){
             array = []
             query.forEach(function(vendor){
                 vendor.products.forEach(function(products){
+                    //var teste = Object.assign(vendor.name, products);
+                    products.vendor = vendor.name
+                    products.vendor_id = vendor._id
                     array.push(products)
                 })
             })

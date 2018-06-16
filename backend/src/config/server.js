@@ -1,16 +1,19 @@
-const port = 3003
+const port = 4009
 
 //Third Party
 const bodyParser = require('body-parser')
 const express = require('express')
 const server = express()
 const allowCors = require('./cors')
+const sharp = require('sharp')
+const fs = require('fs')
 
 //Upload file
 const multer  = require('multer')
 
 //Model
 const Users = require('../api/user/user')
+const Images = require('../api/image/image')
 
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -36,34 +39,60 @@ server.listen(port, function() {
 })
 
 server.post('/file', upload.single('image'), function (req, res, next) {
-	//console.log(req.file)
-  //console.log(req.file.path)
 
-  /*
-    Comprimir a imagem
-  */
+  /**
+   * Salvar no banco de dados os dados do arquivo
+   */
+  var ext = req.file.path.substr(req.file.path.lastIndexOf('.') + 1)
+  var image = new Images({ extension: ext })
+  image.save(function (err) {
+    if (err) return handleError(err)
+    // saved!
+  })
+  console.log('.'+image._id)
+  
+
+  /**
+   * Comprimir a imagem
+   */
   var compress_images = require('compress-images'), INPUT_path_to_your_images, OUTPUT_path;
  
-  INPUT_path_to_your_images = 'img/*.{jpg,JPG,jpeg,JPEG,png,svg,gif}';
-  OUTPUT_path = 'public/img/';
+  INPUT_path_to_your_images = 'img/*.{jpg,JPG,jpeg,JPEG,png,svg,gif}'
+  OUTPUT_path = 'public/img/'
   
   compress_images(INPUT_path_to_your_images, OUTPUT_path, {compress_force: false, statistic: true, autoupdate: true}, false,
     {jpg: {engine: 'tinify', key: "6ZCbK7yzQwMvxNNtcI7ljqpcvbY8cBRF", command: false}},
     {png: {engine: 'pngquant', command: ['--quality=20-50']}},
     {svg: {engine: 'svgo', command: '--multipass'}},
     {gif: {engine: 'gifsicle', command: ['--colors', '64', '--use-col=web']}}, function(){
+  })
+  console.log(req.file.path)
+
+  /**
+   * Recortar imagem
+   */
+  sharp(req.file.path)
+  .resize(490, 280)
+  .toFile(OUTPUT_path+image._id+'.'+ext)
+
+  console.log(req.file.filename)
+
+  /**
+   * Excluir arquivos
+   */
+  /*fs.unlink(req.file.path, function (err) {
+    if (err) throw err
+    console.log('File deleted!')
   });
+  */
 
-	/*
-		Salvar no banco de dados os dados do arquivo
-	*/
-
-	/*
-		Responder o cliente
-	*/
+	/**
+   * Responder o cliente
+   */
 	res.json({
-        resp: 'ok'
-    })
+    image: image._id+'.'+ext
+  })
+
 })
 
 server.get('/testando/:email', function (req, res, next) {
@@ -100,6 +129,6 @@ server.get('/testando/:email', function (req, res, next) {
 
 
 //Deixar acessar a pasta public
-server.use('/assets', express.static('public/img'));
+server.use('/public', express.static('public/'))
 
 module.exports = server

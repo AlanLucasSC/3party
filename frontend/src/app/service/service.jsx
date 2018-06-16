@@ -8,23 +8,31 @@ import { ItemList } from '../shared/component/item/itemList'
 
 import { product, bgGray } from './style.jsx'
 
+//My Class
+import { Types } from '../shared/component/render/types'
+import { Products } from '../shared/component/render/products'
+
 //Mudar o Portifolio em um metodo que busca as categorias
 
 class Service extends React.Component{
     constructor(props){
         super(props)
 
-        this.item = this.item.bind(this)
+        this.chosen = this.chosen.bind(this)
+        this.props.products()
+        /*
+        const type = this.props.types.map(
+            (value) => <option>{value}</option>
+        )
+        */
     }
 
-    item(){
+    chosen(){
         var cont = 1;
-        var info = this.props.type
-        console.log(info)
+        var info = this.props.types
     }
 
     render(){
-        this.props.products()
         return (
             <section>
                 <div className="container" id="portfolio">
@@ -35,133 +43,22 @@ class Service extends React.Component{
                         </div>
                     </div>
                     <div className="row " >
-                      <div className="col-md-3 filtro">
-                        <div className="form-group">
-                          <label htmlFor="exampleFormControlSelect2">Tipo</label>
-                          <select multiple className="form-control" id="exampleFormControlSelect2">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                          </select>
-                        </div>
-                        <hr/>
-                        <div className="form-group">
-                          <label htmlFor="formControlRange">Preço</label>
-                          <input min="0" max="100000" type="range" className="form-control-range" id="formControlRange"/>
-                        </div>
-                      </div>
-                      
-
-                      <div className="col-md-9" style={ bgGray }>
-                        <div className="row">
-                            <div className="col-md-4 col-sm-5" style={ product }>
-                              <div className="portfolio-item">
-                                  <div className="portfolio-link">
-                                      <div className="portfolio-hover">
-                                          <div className="portfolio-hover-content">
-                                          </div>
-                                      </div>
-                                      <img className="img-fluid" src="http://localhost:3003/assets/img/thumbnail.jpg" alt=""/>
-                                  </div>
-                                  <div className="portfolio-caption">
-                                      <h4>Buffet para Festas</h4>
-                                      <p className="text-muted">Espaço Familia Feliz Fest</p>
-                                      <p> Corumba </p>
-                                      <p className="text-right"> R$ 10,00 </p>
-                                  </div>
-                              </div>
-                            </div>
-                            <div className="col-md-4 col-sm-5" style={ product }>
-                              <div className="portfolio-item">
-                                  <div className="portfolio-link">
-                                      <div className="portfolio-hover">
-                                          <div className="portfolio-hover-content">
-                                          </div>
-                                      </div>
-                                      <img className="img-fluid" src="http://localhost:3003/assets/img/buffet.jpg" alt=""/>
-                                  </div>
-                                  <div className="portfolio-caption">
-                                      <h4>Buffet para Festas</h4>
-                                      <p className="text-muted">Espaço Familia Feliz Fest</p>
-                                      <p> Corumba </p>
-                                      <p className="text-right"> R$ 10,00 </p>
-                                  </div>
-                              </div>
-                            </div>
-                            <div className="col-md-4 col-sm-5" style={ product }>
-                              <div className="portfolio-item">
-                                  <div className="portfolio-link">
-                                      <div className="portfolio-hover">
-                                          <div className="portfolio-hover-content">
-                                          </div>
-                                      </div>
-                                      <img className="img-fluid" src="img/portfolio/01-thumbnail.jpg" alt=""/>
-                                  </div>
-                                  <div className="portfolio-caption">
-                                      <h4>Buffet para Festas</h4>
-                                      <p className="text-muted">Espaço Familia Feliz Fest</p>
-                                      <p> Corumba </p>
-                                      <p className="text-right"> R$ 10,00 </p>
-                                  </div>
-                              </div>
-                            </div>
-                            <div className="col-md-4 col-sm-5" style={ product }>
-                              <div className="portfolio-item">
-                                  <div className="portfolio-link">
-                                      <div className="portfolio-hover">
-                                          <div className="portfolio-hover-content">
-                                          </div>
-                                      </div>
-                                      <img className="img-fluid" src="img/portfolio/01-thumbnail.jpg" alt=""/>
-                                  </div>
-                                  <div className="portfolio-caption">
-                                      <h4>Buffet para Festas</h4>
-                                      <p className="text-muted">Espaço Familia Feliz Fest</p>
-                                      <p> Corumba </p>
-                                      <p className="text-right"> R$ 10,00 </p>
-                                  </div>
-                              </div>
-                            </div>
-                            <div className="col-md-4 col-sm-5" style={ product }>
-                              <div className="portfolio-item">
-                                  <div className="portfolio-link">
-                                      <div className="portfolio-hover">
-                                          <div className="portfolio-hover-content">
-                                          </div>
-                                      </div>
-                                      <img className="img-fluid" src="img/portfolio/01-thumbnail.jpg" alt=""/>
-                                  </div>
-                                  <div className="portfolio-caption">
-                                      <h4>Buffet para Festas</h4>
-                                      <p className="text-muted">Espaço Familia Feliz Fest</p>
-                                      <p> Corumba </p>
-                                      <p className="text-right"> R$ 10,00 </p>
-                                  </div>
-                              </div>
-                            </div>
-                            <div className="col-md-4 col-sm-5" style={ product }>
-                              <div className="portfolio-item">
-                                  <div className="portfolio-link">
-                                      <div className="portfolio-hover">
-                                          <div className="portfolio-hover-content">
-                                          </div>
-                                      </div>
-                                      <img className="img-fluid" src="img/portfolio/01-thumbnail.jpg" alt=""/>
-                                  </div>
-                                  <div className="portfolio-caption">
-                                      <h4>Buffet para Festas</h4>
-                                      <p className="text-muted">Espaço Familia Feliz Fest</p>
-                                      <p> Corumba </p>
-                                      <p className="text-right"> R$ 10,00 </p>
-                                  </div>
-                              </div>
+                        <div className="col-md-12 filtro">
+                            <div className="row">
+                                <div className="form-group col-sm-3">
+                                    <label htmlFor="exampleFormControlSelect2">Tipo</label>
+                                    <Types type={ this.props.types }/>
+                                </div>
+                                <div className="form-group col-sm-3">
+                                    <label htmlFor="formControlRange">Preço</label>
+                                    <input min="0" max="100000" type="range" className="form-control-range" id="formControlRange"/>
+                                </div>
                             </div>
                         </div>
-                      </div>
+                        <div className="col-md-12" style={ bgGray }>
+                            <Products products={ this.props.product }/>
+                        </div>
                     </div>
-                        
                 </div>
             </section>
         )
@@ -170,8 +67,9 @@ class Service extends React.Component{
 
 //State
 const mapStateToProps = state => ({
-    products: state.service.products,
-    type: state.service.type
+    product: state.service.products,
+    types: state.service.type,
+    email: state.login.user.email,
 })
 
 //Actions

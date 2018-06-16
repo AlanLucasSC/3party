@@ -19,7 +19,6 @@ class Layout extends React.Component {
     render() {
         return (
             <div>
-                { this.props.products() }
                 <Navigation userEmail={ this.props.email } logout={ this.props.doLogout }/>
                 { this.props.children }
                 <Footer />

@@ -2,8 +2,8 @@ import axios from 'axios'
 
 import { redirect } from '../../actions/app/app.js'
 
-const URL = 'http://localhost:3003/api/user'
-const COMPARE = 'http://localhost:3003/api/compare'
+const URL = 'http://localhost:4009/api/user'
+const COMPARE = 'http://localhost:4009/api/compare'
 
 export const login = (email, password) => {
     return (dispatch) => {

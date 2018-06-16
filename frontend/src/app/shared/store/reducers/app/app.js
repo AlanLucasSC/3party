@@ -3,7 +3,7 @@ const INITIAL_STATE = {
     userType: 'VISITOR',
 }
 
-const URL = "http://localhost:8080/#"
+const URL = "http://localhost:8008/#"
 
 export default (state = INITIAL_STATE, action) => {
     switch(action.type) {
