@@ -35,6 +35,10 @@ module.exports = function(server) {
     const image = require('../api/image/imageService')
     image.register(router, '/image')
 
+    //Solicitation
+    const solicitation = require('../api/solicitation/solicitationService')
+    solicitation.register(router, '/solicitation')
+
     //Custom routes
     
     //Compare password

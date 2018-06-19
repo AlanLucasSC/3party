@@ -1,6 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 
+//Actions
+import { redirect } from '../shared/store/actions/app/app'
+import { doLogout } from '../shared/store/actions/auth/login'
 import Link from '../shared/component/button/link'
 import Card from '../shared/component/card/card'
 
@@ -8,6 +12,7 @@ import Card from '../shared/component/card/card'
 class UserProfile extends React.Component{
     constructor(props){
         super(props)
+        const URL = '/#/'
     }
 
     render(){
@@ -28,7 +33,7 @@ class UserProfile extends React.Component{
                             <Link url="#"> Meus Desejos </Link>
                             <Link url="#"> Informações do Perfil </Link>
                             <Link url="#"> Cartões e Vales </Link>
-                            <Link url="#"> Sair </Link>
+                            <Link url="" click={ this.props.doLogout }> Sair </Link>
                         </div>
                     
                         <div className="col-sm-4">
@@ -55,4 +60,10 @@ const mapStateToProps = state => ({
     information: state.login.user.data.information,
 })
 
-export default connect(mapStateToProps)(UserProfile)
+//Actions
+const mapDispatchToProps = dispatch => bindActionCreators({
+    doLogout
+}, dispatch)
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserProfile)

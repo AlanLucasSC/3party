@@ -1,6 +1,7 @@
 const INITIAL_STATE = {
     page: '/home',
     userType: 'VISITOR',
+    pagination: 1
 }
 
 const URL = "http://localhost:8008/#"
@@ -13,7 +14,15 @@ export default (state = INITIAL_STATE, action) => {
             return { 
                 ...state, 
                 page: action.payload.page,
-                userType: action.payload.userType
+                userType: action.payload.userType,
+                pagination: 1
+            }
+        }
+
+        case '[APP] PAGE': {
+            return { 
+                ...state, 
+                pagination: action.payload
             }
         }
         

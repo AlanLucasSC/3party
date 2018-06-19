@@ -22,7 +22,7 @@ class Navigation extends React.Component{
                         <i className="fa fa-bars"></i>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarResponsive">
-                        <ItemNavigation userType={ this.props.userType } />
+                        <ItemNavigation userType={ this.props.userType } logout={ this.props.logout }/>
                     </div>
                 </div>
             </nav>

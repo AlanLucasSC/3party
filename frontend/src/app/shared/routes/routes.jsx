@@ -11,8 +11,9 @@ import Dashboard from '../../dashboard/dashboard'
 import UserProfile from '../../profile/user'
 import Service from '../../service/service'
 import Files from '../../file/file'
+import Events from '../../list/event/event'
 
-class Routes extends React.Component{
+export class Routes extends React.Component{
     constructor(props){
         super(props)
     }
@@ -23,8 +24,9 @@ class Routes extends React.Component{
                 <Route exac path='/' component={ Information }/>
                 <Route exac path='/dashboard' component={ Dashboard }/>
                 <Route exac path='/profile' component={ UserProfile }/>
-                <Route exac path='/products' component={ Service }/>
+                <Route exac path='/service' component={ Service }/>
                 <Route exac path='/file' component={ Files }/>
+                <Route exac path='/event' component={ Events }/>
                 <Redirect from='*' to='/' />
             </Router>   
         )

@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default props => (
-    <footer className="footer">
+    <footer className="footer" >
         <div className="container">
             <div className="row">
                 <div className="col-md-4">

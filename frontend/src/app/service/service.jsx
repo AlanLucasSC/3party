@@ -2,15 +2,19 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-
+//Effects
 import { products } from '../shared/store/effects/service/service'
-import { ItemList } from '../shared/component/item/itemList'
 
+//Actions
+import { redirect } from '../shared/store/actions/app/app'
+
+//Css
 import { product, bgGray } from './style.jsx'
 
-//My Class
+//Dumb component
 import { Types } from '../shared/component/render/types'
 import { Products } from '../shared/component/render/products'
+import { ItemList } from '../shared/component/item/itemList'
 
 //Mudar o Portifolio em um metodo que busca as categorias
 
@@ -18,13 +22,12 @@ class Service extends React.Component{
     constructor(props){
         super(props)
 
+        if(this.props.userType === 'VISITOR'){
+            this.props.redirect('/', 'VISITOR')
+        }
+
         this.chosen = this.chosen.bind(this)
         this.props.products()
-        /*
-        const type = this.props.types.map(
-            (value) => <option>{value}</option>
-        )
-        */
     }
 
     chosen(){
@@ -70,11 +73,13 @@ const mapStateToProps = state => ({
     product: state.service.products,
     types: state.service.type,
     email: state.login.user.email,
+    userType: state.app.userType
 })
 
 //Actions
 const mapDispatchToProps = dispatch => bindActionCreators({
-    products
+    products,
+    redirect
 }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(Service)

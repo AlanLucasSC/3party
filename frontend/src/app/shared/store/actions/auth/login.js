@@ -1,4 +1,5 @@
 import { login } from '../../effects/auth/login'
+import { redirect } from '../../actions/app/app.js'
 
 export const changeEmail = event => ({
     type: '[LOGIN] EMAIL_CHANGED',
@@ -27,5 +28,5 @@ export const doLogoutSuccess = () => ({
 export const doLogout = () => {
     return [{
         type: '[LOGIN] DO_LOGOUT'
-    }, doLogoutSuccess(), redirect('/login', 'VISITOR')]
+    }, doLogoutSuccess(), redirect('/', 'VISITOR')]
 }
