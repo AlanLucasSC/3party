@@ -1,5 +1,6 @@
 const INITIAL_STATE = {
-    selected: '',
+    selectedID: '',
+    selectedName: '',
     name: '',
     date: '',
     events: ''
@@ -32,19 +33,46 @@ export default (state = INITIAL_STATE, action) => {
                 date: action.payload
             }
         }
+
+        case '[EVENT] SELECTED_EVENT_CHANGED': {
+            return { 
+                ...state, 
+                selectedID: action.payload.selectedID,
+                selectedName: action.payload.selectedName
+            }
+        }
             
 
         case '[EVENT] LOAD_EVENTS_SUCCESS': {
-            return { 
-                ...state,
-                events: action.payload.events
+            if(state.selectedName){
+                return { 
+                    ...state,
+                    events: action.payload.events
+                }
+            } else {
+                if(action.payload.events.length != 0){
+                    return { 
+                        ...state,
+                        events: action.payload.events,
+                        selectedName: action.payload.events[0].name,
+                        selectedID: action.payload.events[0]._id
+                    }
+                } else {
+                    return { 
+                        ...state,
+                        events: action.payload.events,
+                        selectedName: 'Eventos',
+                        selectedID: ''
+                    }
+                }
             }
         }
 
         case '[EVENT] LOAD_EVENTS_FAIL': {
             return { 
                 ...state,
-                message: action.payload.message
+                message: action.payload.message,
+                err: action.payload.err,
             }
         }
 

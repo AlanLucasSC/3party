@@ -1,7 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 
 import ItemNavigation from '../item/itemNavigation'
+
+//Actions
+import { changeSelected } from '../../store/actions/event/event'
+
 
 
 class Navigation extends React.Component{
@@ -22,7 +27,14 @@ class Navigation extends React.Component{
                         <i className="fa fa-bars"></i>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarResponsive">
-                        <ItemNavigation userType={ this.props.userType } logout={ this.props.logout }/>
+                        <ItemNavigation 
+                            userType={ this.props.userType } 
+                            logout={ this.props.logout }
+                            selectedName={ this.props.selectedName }
+                            selectedID={ this.props.selectedID }
+                            events={ this.props.events }
+                            changeSelected={ this.props.changeSelected }
+                        />
                     </div>
                 </div>
             </nav>
@@ -32,7 +44,16 @@ class Navigation extends React.Component{
 
 //State
 const mapStateToProps = state => ({
-    userType: state.app.userType
+    userType: state.app.userType,
+    selected: state.event.selected,
+    events: state.event.events,
+    selectedName: state.event.selectedName,
+    selectedID: state.event.selectedID
 })
 
-export default connect(mapStateToProps)(Navigation)
+//Actions
+const mapDispatchToProps = dispatch => bindActionCreators({
+    changeSelected
+}, dispatch)
+
+export default connect(mapStateToProps, mapDispatchToProps)(Navigation)

@@ -7,11 +7,16 @@ import { connect } from 'react-redux'
 import Login from '../../auth/login/login'
 import Layout from '../container/layout/layout'
 import Information from '../../information/information'
+
+//USER
 import Dashboard from '../../dashboard/dashboard'
 import UserProfile from '../../profile/user'
 import Service from '../../service/service'
 import Files from '../../file/file'
 import Events from '../../list/event/event'
+
+//VENDOR
+import ContractVendor from '../../document/contractVendor'
 
 export class Routes extends React.Component{
     constructor(props){
@@ -27,6 +32,9 @@ export class Routes extends React.Component{
                 <Route exac path='/service' component={ Service }/>
                 <Route exac path='/file' component={ Files }/>
                 <Route exac path='/event' component={ Events }/>
+
+                <Route exac path='/vendor/contract' component={ ContractVendor }/>
+
                 <Redirect from='*' to='/' />
             </Router>   
         )

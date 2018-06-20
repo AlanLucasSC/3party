@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux'
 
 //Effects
 import { products } from '../shared/store/effects/service/service'
+import { createSolicitation } from '../shared/store/effects/service/solicitation'
 
 //Actions
 import { redirect } from '../shared/store/actions/app/app'
@@ -22,8 +23,8 @@ class Service extends React.Component{
     constructor(props){
         super(props)
 
-        if(this.props.userType === 'VISITOR'){
-            this.props.redirect('/', 'VISITOR')
+        if(this.props.userType !== 'USER'){
+            this.props.redirect('/', this.props.userType)
         }
 
         this.chosen = this.chosen.bind(this)
@@ -59,7 +60,11 @@ class Service extends React.Component{
                             </div>
                         </div>
                         <div className="col-md-12" style={ bgGray }>
-                            <Products products={ this.props.product }/>
+                            <Products
+                                event = { this.props.event }
+                                createSolicitation={ this.props.createSolicitation } 
+                                products={ this.props.product }
+                            />
                         </div>
                     </div>
                 </div>
@@ -73,13 +78,15 @@ const mapStateToProps = state => ({
     product: state.service.products,
     types: state.service.type,
     email: state.login.user.email,
-    userType: state.app.userType
+    userType: state.app.userType,
+    event: state.event.selectedID
 })
 
 //Actions
 const mapDispatchToProps = dispatch => bindActionCreators({
     products,
-    redirect
+    redirect,
+    createSolicitation
 }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(Service)

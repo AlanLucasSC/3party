@@ -14,6 +14,7 @@ const user = new mongoose.Schema({
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
     vendor: { type: String, required: false},
+    contract: { type: String, required: true, default: 'PENDENTE', uppercase: true, enum: ['ACEITO', 'PENDENTE', 'REJEITADO'] },
     information: [ information ]
 })
 

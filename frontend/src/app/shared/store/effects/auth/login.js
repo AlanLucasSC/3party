@@ -1,6 +1,7 @@
 import axios from 'axios'
 
 import { redirect } from '../../actions/app/app.js'
+import { loadEvents } from '../event/event'
 
 const URL = 'http://localhost:4009/api/user'
 const COMPARE = 'http://localhost:4009/api/compare'
@@ -67,9 +68,16 @@ export const pswCompare = (hash, password, data) => {
             .then(
                 resp => {
                     switch(resp.type) {
-                        case '[LOGIN] DO_LOGIN_SUCCESS':
+                        case '[LOGIN] DO_LOGIN_SUCCESS':{
                             $('#loginModal').modal('hide');
-                            dispatch(redirect('/profile', 'USER'))
+                            console.log(resp.payload.data.vendor)
+                            if(resp.payload.data.vendor == undefined){
+                                dispatch(redirect('/profile', 'USER'))
+                            } else {
+                                dispatch(redirect('', 'VENDOR'))
+                            }
+                            dispatch(loadEvents(resp.payload.data._id))
+                        }
                     }
                 }
             )

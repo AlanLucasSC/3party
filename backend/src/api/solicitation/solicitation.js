@@ -4,8 +4,10 @@ const mongoose = restful.mongoose
 const solicitation = new mongoose.Schema({
     vendor: { type: String, required: true },
     product: { type: String, required: true },
-    coupon: { type: Number, required: true },
-    status: { type: String, required: true, default: 'ABERTO', uppercase: true, enum: ['ABERTO', 'ACEITO', 'NEGADO'] },
+    coupon: { type: Number, required: false },
+    amount: { type: Number, required: false },
+    people: { type: Number, required: false },
+    status: { type: String, required: true, default: 'PENDENTE', uppercase: true, enum: ['PENDENTE', 'ACEITO', 'NEGADO'] },
     end: { type: Date, required: true, default: Date.now }
 })
 

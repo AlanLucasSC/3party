@@ -14,7 +14,7 @@ const coupon = new mongoose.Schema({
     end: { type: Date, required: true},
     code: { type: String, required: false },
     amount: { type: Number, required: false },
-    status: { type: String, requiredd: true, uppercase: true, enum: ['ABERTO', 'RESTRITO'] }
+    status: { type: String, required: true, uppercase: true, enum: ['ABERTO', 'RESTRITO'] }
 })
 
 const adress = new mongoose.Schema({
@@ -40,6 +40,7 @@ const product = new mongoose.Schema({
     information: [information],
     coupon: [coupon],
     adress: [adress],
+    contract: { type: Boolean, required: true, default: false }
     //contact: [contact]
 })
 

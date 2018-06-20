@@ -7,6 +7,7 @@ import { ListGroup } from './listGroup/listGroup'
 const Margin = {
     marginLeft: 10+'px',
     marginRight: 10+'px',
+    fontSize: 15+'px',
 }
 
 const Card = {
@@ -25,6 +26,16 @@ export const RenderEvents = props => {
                 //console.log(value.solicitation.length)
                 //console.log(value.status)
                 //console.log(value.date)
+                var date = new Date(value.date)
+                var year = date.getFullYear()
+                var month = date.getMonth() + 1
+                var day = date.getDate()
+                if(month < 10)
+                    month = '0'+month
+                if(day < 10)
+                    day = '0'+day
+                date = day+'/'+month+'/'+year
+
                 return (
                     <ListItem style={ Card } key={ value._id }>
                         <div className="d-flex w-100 justify-content-between">
@@ -43,9 +54,17 @@ export const RenderEvents = props => {
                                     click={ () => console.log('Ba') }
                                     style={ Margin }
                                 > Solicitações </Badges>
+                                <Badges 
+                                    type={ 'button' }
+                                    color={ 'outline-danger' }
+                                    status={ value.status }
+                                    click={ () => console.log('Teste') }
+                                    style={ Margin }
+                                    readonly
+                                > Cancelar </Badges>
                             </small>
                         </div>
-                        <p className="mb-1">{ 'Data' }: { value.date }</p>
+                        <p className="mb-1">{ 'Data do Evento' }: { date }</p>
                     </ListItem>
                 )
             }

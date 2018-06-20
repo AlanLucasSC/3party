@@ -12,7 +12,8 @@ export const createEvent = (user, name, date) => {
                 name: name,
                 date, date
             })
-            .then(function (resp) {
+            .then( 
+                resp => {
                 return dispatch({
                     type: '[EVENT] DO_CREATE_EVENT_SUCCESS',
                     payload: {
@@ -20,7 +21,16 @@ export const createEvent = (user, name, date) => {
                     }
                 })
             })
-            .catch(function (err) {
+            .then(
+                resp => {
+                    switch(resp.type) {
+                        case '[EVENT] DO_CREATE_EVENT_SUCCESS':
+                            dispatch( loadEvents(user) )
+                    }
+                }
+            )
+            .catch( 
+                err => {
                 return dispatch({
                     type: '[EVENT] DO_CREATE_EVENT_FAIL',
                     payload: {
@@ -34,12 +44,9 @@ export const createEvent = (user, name, date) => {
 
 export const loadEvents = (user) => {
     return (dispatch) => {
+        console.log(URL+'?id='+user)
         const request = axios
-            .get(URL, {
-                params: {
-                    user: user
-                }
-            })
+            .get(URL+'?id='+user)
             .then(function (resp) {
                 return dispatch({
                     type: '[EVENT] LOAD_EVENTS_SUCCESS',
@@ -49,6 +56,7 @@ export const loadEvents = (user) => {
                 })
             })
             .catch(function (err) {
+                console.log(err)
                 return dispatch({
                     type: '[EVENT] LOAD_EVENTS_FAIL',
                     payload: {

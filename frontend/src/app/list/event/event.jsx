@@ -39,6 +39,7 @@ class Events extends React.Component{
         super(props)
 
         this.toggle = this.toggle.bind(this);
+        console.log(this.props.user)
         this.props.loadEvents( this.props.user )
     }
 
@@ -61,7 +62,7 @@ class Events extends React.Component{
                 <Navbar name="Eventos" ID="evento">
                     <Collapse ID="evento">
                         <List>
-                            <Item active> Todos </Item>
+                            <Item URL={ '' } active> Todos </Item>
                         </List>
                         <Input 
                             type= { 'date' }
