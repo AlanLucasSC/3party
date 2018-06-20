@@ -12,17 +12,26 @@ import { Input } from  '../../shared/component/form/input'
 import { Column } from '../../shared/component/column/column'
 import { Alert } from '../../shared/component/alert/alert'
 
+
+import { RenderEvents } from './renderEvents'
+
 //Actions
 import { changeName, changeDate } from '../../shared/store/actions/event/event'
 
 //Effects
-import { createEvent } from '../../shared/store/effects/event/event'
+import { createEvent, loadEvents } from '../../shared/store/effects/event/event'
 
 
-const HR = {
-    marginLeft: 20+'px',
-    marginRight: 20+'px',
+const Margin = {
+    marginLeft: 10+'px',
+    marginRight: 10+'px',
 }
+
+const Card = {
+    fontSize: 15+'px',
+}
+
+
 
 class Events extends React.Component{
 
@@ -30,6 +39,7 @@ class Events extends React.Component{
         super(props)
 
         this.toggle = this.toggle.bind(this);
+        this.props.loadEvents( this.props.user )
     }
 
     toggle( id ){
@@ -59,7 +69,7 @@ class Events extends React.Component{
                             name={ 'Evento' }
                             onChange={ this.props.changeDate }
                             value= { this.props.date }
-                            className={ 'col-3' }
+                            className={ 'col-4' }
                         >
                             <span className="input-group-text" id="basic-addon1">Data</span>
                         </Input>
@@ -80,7 +90,8 @@ class Events extends React.Component{
                         </Input>
                     </Collapse>
                 </Navbar>
-                <hr style={ HR }/>
+                <hr style={ Margin }/>
+                <RenderEvents style={ Card } events={ this.props.events }/>
             </section>
         )
     }
@@ -90,14 +101,16 @@ class Events extends React.Component{
 const mapStateToProps = state => ({
     name: state.event.name,
     date: state.event.date,
-    user: state.login.user.data._id
+    user: state.login.user.data._id,
+    events: state.event.events
 })
 
 //Actions
 const mapDispatchToProps = dispatch => bindActionCreators({
     changeName,
     changeDate,
-    createEvent
+    createEvent,
+    loadEvents
 }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(Events)

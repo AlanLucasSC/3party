@@ -34,10 +34,17 @@ export default (state = INITIAL_STATE, action) => {
         }
             
 
-        case '[EVENT] LOAD_EVENTS': {
+        case '[EVENT] LOAD_EVENTS_SUCCESS': {
             return { 
                 ...state,
                 events: action.payload.events
+            }
+        }
+
+        case '[EVENT] LOAD_EVENTS_FAIL': {
+            return { 
+                ...state,
+                message: action.payload.message
             }
         }
 
