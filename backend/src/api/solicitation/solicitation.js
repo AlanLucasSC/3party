@@ -7,6 +7,8 @@ const solicitation = new mongoose.Schema({
     coupon: { type: Number, required: false },
     amount: { type: Number, required: false },
     people: { type: Number, required: false },
+    date: { type: Date, require: true },
+    price: { type: Number, require: true, default: 0.0 },
     status: { type: String, required: true, default: 'PENDENTE', uppercase: true, enum: ['PENDENTE', 'ACEITO', 'NEGADO'] },
     end: { type: Date, required: true, default: Date.now }
 })

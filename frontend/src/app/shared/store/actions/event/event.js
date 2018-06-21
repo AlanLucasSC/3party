@@ -14,13 +14,14 @@ export const changeDate = event => {
     }
 }
 
-export const changeSelected = ( id, name ) => {
+export const changeSelected = ( id, name, date ) => {
     //console.log(event.target.value)
     return {
         type: '[EVENT] SELECTED_EVENT_CHANGED',
         payload: {
             selectedID: id,
-            selectedName: name
+            selectedName: name,
+            selectedDate: date
         }
     }
 }

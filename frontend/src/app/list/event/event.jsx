@@ -39,7 +39,6 @@ class Events extends React.Component{
         super(props)
 
         this.toggle = this.toggle.bind(this);
-        console.log(this.props.user)
         this.props.loadEvents( this.props.user )
     }
 
@@ -68,7 +67,7 @@ class Events extends React.Component{
                             type= { 'date' }
                             ID={ 'newData' }
                             name={ 'Evento' }
-                            onChange={ this.props.changeDate }
+                            onChange={ (this.props.changeDate) }
                             value= { this.props.date }
                             className={ 'col-4' }
                         >
@@ -93,6 +92,9 @@ class Events extends React.Component{
                 </Navbar>
                 <hr style={ Margin }/>
                 <RenderEvents style={ Card } events={ this.props.events }/>
+                <section>
+                    
+                </section>
             </section>
         )
     }

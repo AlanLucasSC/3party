@@ -1,7 +1,6 @@
 const Vendors = require('./vendor')
 const objectAssign = require('object-assign');
 
-
 Vendors.methods(['get', 'post', 'put', 'patch', 'delete'])
 Vendors.updateOptions({new: true, runValidators: true})
 

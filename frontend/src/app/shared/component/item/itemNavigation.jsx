@@ -58,7 +58,10 @@ export default props => {
                                 <ItemSelect 
                                     events={ props.events }
                                     change={ (e) => {
-                                        props.changeSelected(e.target.value, e.target.options[e.target.selectedIndex].text)
+                                        console.log(e.target.options[e.target.selectedIndex].id)
+                                        console.log(e.target.options[e.target.selectedIndex].text)
+                                        console.log(e.target.options[e.target.selectedIndex].value)
+                                        props.changeSelected(e.target.options[e.target.selectedIndex].id, e.target.options[e.target.selectedIndex].text, e.target.options[e.target.selectedIndex].value)
                                     } }
                                 />
                             </div>
@@ -103,7 +106,7 @@ export default props => {
                         <A 
                             style={ Margin } 
                             color="outline-warning" 
-                            URL={ 'vendor/solicitation' } 
+                            URL={ 'solicitation' } 
                             name="Solicitações" 
                         />
                     </li>

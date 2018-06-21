@@ -1,6 +1,7 @@
 const INITIAL_STATE = {
     selectedID: '',
     selectedName: '',
+    selectedDate: '',
     name: '',
     date: '',
     events: ''
@@ -38,7 +39,8 @@ export default (state = INITIAL_STATE, action) => {
             return { 
                 ...state, 
                 selectedID: action.payload.selectedID,
-                selectedName: action.payload.selectedName
+                selectedName: action.payload.selectedName,
+                selectedDate: action.payload.selectedDate
             }
         }
             

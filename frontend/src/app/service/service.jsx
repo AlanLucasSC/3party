@@ -47,21 +47,10 @@ class Service extends React.Component{
                         </div>
                     </div>
                     <div className="row " >
-                        <div className="col-md-12 filtro">
-                            <div className="row">
-                                <div className="form-group col-sm-3">
-                                    <label htmlFor="exampleFormControlSelect2">Tipo</label>
-                                    <Types type={ this.props.types }/>
-                                </div>
-                                <div className="form-group col-sm-3">
-                                    <label htmlFor="formControlRange">Preço</label>
-                                    <input min="0" max="100000" type="range" className="form-control-range" id="formControlRange"/>
-                                </div>
-                            </div>
-                        </div>
                         <div className="col-md-12" style={ bgGray }>
                             <Products
-                                event = { this.props.event }
+                                event={ this.props.event }
+                                eventDate={ this.props.eventDate }
                                 createSolicitation={ this.props.createSolicitation } 
                                 products={ this.props.product }
                             />
@@ -79,7 +68,8 @@ const mapStateToProps = state => ({
     types: state.service.type,
     email: state.login.user.email,
     userType: state.app.userType,
-    event: state.event.selectedID
+    event: state.event.selectedID,
+    eventDate: state.event.selectedDate
 })
 
 //Actions

@@ -14,6 +14,8 @@ const multer  = require('multer')
 //Model
 const Users = require('../api/user/user')
 const Images = require('../api/image/image')
+const Events = require('../api/event/event')
+const Vendor = require('../api/vendor/vendor')
 
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -127,6 +129,76 @@ server.get('/testando/:email', function (req, res, next) {
   })
 })
 
+server.get('/event/solicitation/:id', function(req, res, next){
+  console.log(req.params.id)
+  response = {
+
+  }
+  Events.find(function (err, query) {
+    if (err) {
+        res.status(500)
+        res.send("Erro interno do servidor")
+    }
+    else {
+        res.status(200)
+        query.forEach(function(event){
+          event.solicitation.forEach(function(solicitation){
+              if(solicitation.id == req.params.id){
+                response = event
+                console.log(event)
+              }
+          })
+        })
+    }
+    res.send( response )
+  });
+})
+
+server.get('/product/:id', function(req, res, next){
+  console.log(req.params.id)
+  response = {
+  }
+  Vendor.find(function (err, query) {
+    if (err) {
+        res.status(500)
+        res.send("Erro interno do servidor")
+    }
+    else {
+        res.status(200)
+        query.forEach(function(vendor){
+          vendor.products.forEach(function(product){
+              if(product.id == req.params.id){
+                response = product
+                console.log(product)
+              }
+          })
+        })
+    }
+    res.send(response)
+  });
+})
+
+server.get('/products/:id', function(req, res, next){
+  console.log(req.params.id)
+  response = {
+  }
+  Vendor.find(function (err, query) {
+    if (err) {
+        res.status(500)
+        res.send("Erro interno do servidor")
+    }
+    else {
+        res.status(200)
+        query.forEach(function(vendor){
+          if(vendor._id == req.params.id){
+            response = vendor.products
+            console.log(response)
+          }
+        })
+    }
+    res.send(response)
+  });
+})
 
 //Deixar acessar a pasta public
 server.use('/public', express.static('public/'))

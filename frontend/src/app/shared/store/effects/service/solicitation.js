@@ -5,14 +5,15 @@ const URL_Event = 'http://localhost:4009/api/event'
 
 
 //Inseri a solicitação
-export const createSolicitation = (vendor, product, amount, people, event, type) => {
+export const createSolicitation = (vendor, product, amount, people, event, type, date) => {
     return (dispatch) => {
         const request = axios
             .post(`${URL}`, {
                 vendor: vendor,
                 product: product,
                 amount: amount,
-                people: people
+                people: people,
+                date: date
             })
             .then(
                 resp => {

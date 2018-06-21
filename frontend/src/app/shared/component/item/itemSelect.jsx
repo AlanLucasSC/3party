@@ -9,7 +9,8 @@ export const ItemSelect = props => {
                         return (
                             <option 
                                 key={ value._id } 
-                                value={ value._id }
+                                value={ value.date  }
+                                id={ value._id }
                             > { value.name } </option>
                         )
                     

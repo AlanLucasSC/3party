@@ -39,7 +39,7 @@ export const Products = props => {
             console.log(vendor )
             alert('Crie um evento para conseguir solicitar um produto/serviço')
         } else {
-            props.createSolicitation(vendor, product, amount, people, props.event, type)
+            props.createSolicitation(vendor, product, amount, people, props.event, type, props.eventDate)
         }
     }
 

@@ -17,6 +17,8 @@ import Events from '../../list/event/event'
 
 //VENDOR
 import ContractVendor from '../../document/contractVendor'
+import Solicitation from '../../list/solicitation/solicitation'
+import Product from '../../create/products'
 
 export class Routes extends React.Component{
     constructor(props){
@@ -34,6 +36,9 @@ export class Routes extends React.Component{
                 <Route exac path='/event' component={ Events }/>
 
                 <Route exac path='/vendor/contract' component={ ContractVendor }/>
+                <Route exac path='/solicitation' component={ Solicitation }/>
+                <Route exac path='/vendor/products' component={ Product }/>
+
 
                 <Redirect from='*' to='/' />
             </Router>   
