@@ -14,6 +14,7 @@ import UserProfile from '../../profile/user'
 import Service from '../../service/service'
 import Files from '../../file/file'
 import Events from '../../list/event/event'
+import Cart from '../../list/cart/cart'
 
 //VENDOR
 import ContractVendor from '../../document/contractVendor'
@@ -34,6 +35,7 @@ export class Routes extends React.Component{
                 <Route exac path='/service' component={ Service }/>
                 <Route exac path='/file' component={ Files }/>
                 <Route exac path='/event' component={ Events }/>
+                <Route exac path='/cart' component={ Cart }/>
 
                 <Route exac path='/vendor/contract' component={ ContractVendor }/>
                 <Route exac path='/solicitation' component={ Solicitation }/>

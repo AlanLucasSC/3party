@@ -18,20 +18,9 @@ const Card = {
     marginTop: 10+'px'
 }
 
-export class RenderSolicitation extends React.Component{
+export class Render extends React.Component{
     constructor(props){
         super(props)
-
-        var i = 0;
-        //this.props.productSelected( '5ae1f8b73fc4ae3c39bd15ae' )
-        //this.props.solicitationSelected( '5ae1f8b73fc4ae3c39bd15ae' )
-        for(i = 0; i < this.props.solicitations.length; i++){
-            this.props.productSelected( this.props.solicitations[i].product )
-        }
-
-        //console.log(this.props.products)
-
-        //
     }
 
     render(){
@@ -48,8 +37,7 @@ export class RenderSolicitation extends React.Component{
                         day = '0'+day
                     date = day+'/'+month+'/'+year
 
-                    if(value.status != 'NEGADO'){
-                        console.log(value)
+                    if(value.status != 'NEGADO')
                         return (
                             <ListItem style={ Card } key={ value._id }>
                                 <div className="d-flex w-100 justify-content-between">
@@ -57,18 +45,6 @@ export class RenderSolicitation extends React.Component{
                                         { this.props.products[ value.product ].name }
                                     </h5>
                                     <small>
-                                        <Input
-                                            type= { 'number' }
-                                            ID={ 'div' }
-                                            id={ 'price' }
-                                            description={ 'Preço' }
-                                            name={ 'Preço' }
-                                            onChange={ () => console.log('Ba') }
-                                            defaultValue= { this.props.products[ value.product ].price }
-                                            className={ '' }
-                                        >
-                                            <span className="input-group-text" id="basic-addon1"> Preço da Solicitação </span>
-                                        </Input >
                                         <Badges 
                                             type={ '' }
                                             status={ value.status }
@@ -81,7 +57,7 @@ export class RenderSolicitation extends React.Component{
                                             status={ value.status }
                                             click={ () => this.props.changeStatus(value._id, 'ACEITO', $('#price').val()) }
                                             style={ Margin }
-                                        > Aceitar </Badges>
+                                        > Adicionar no carrinho </Badges>
                                         <Badges 
                                             type={ 'button' }
                                             color={ 'outline-danger' }
@@ -94,6 +70,7 @@ export class RenderSolicitation extends React.Component{
                                 </div>
                                 <div className="row">
                                     <div className="col-md-4">
+                                        <p className="mb-1">{ 'Preço' }: { value.price }</p>
                                         <p className="mb-1">{ 'Data do Evento' }: { date }</p>
                                         <p className="mb-1">{ 'Quantidade' }: { value.people }</p>
                                         <p className="mb-1">{ 'Pessoas' }: { value.amount }</p>
@@ -107,7 +84,6 @@ export class RenderSolicitation extends React.Component{
                                 </div>
                             </ListItem>
                         )
-                    }
                     else
                         return false
                 }

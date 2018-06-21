@@ -22,6 +22,21 @@ export const solicitationsVendor = (id) => {
     }
 }
 
+export const solicitationsUser = (id) => {
+    return (dispatch) => {
+        const request = axios
+            .get(`${URL}?id=${id}`)
+            .then(
+                resp => {
+                    return dispatch({
+                        type: '[SOLICITATION] FETCH_MY_SOLICITATION',
+                        payload: resp.data
+                    })
+                }
+            )
+    }
+}
+
 export const productSelected = (id) => {
     return (dispatch) => {
         //console.log(id)
@@ -66,6 +81,7 @@ export const changeStatus = (id, status, price) => {
             status: status,
             price: price
         }
+        console.log(change)
         const putRequest = axios
             .put(URL_Soli+'/'+id, change)
             .then(

@@ -32,7 +32,6 @@ export class Submit extends React.Component{
                     className="btn btn-outline-warning"
                     onClick={ this.validateSubmit }
                 >{ this.props.children }</button>
-                <label><input type="checkbox"/> Lembre-me</label>
             </div>
         )
     }

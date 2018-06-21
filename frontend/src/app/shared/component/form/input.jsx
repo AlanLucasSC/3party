@@ -18,11 +18,12 @@ export const Input = props => {
                 id={ props.ID } 
                 style={ Margins }
             >
-                <input 
+                <input
                     type={ props.type } 
                     className="form-control"
                     value={ props.value }
                     placeholder={ props.name } 
+                    id={ props.id }  
                     aria-describedby="basic-addon1"
                     onChange={ props.onChange }
                     style={ Weight }
@@ -42,6 +43,7 @@ export const Input = props => {
             >
                 <input 
                     type={ props.type } 
+                    id={ props.id } 
                     className="form-control"
                     defaultValue={ props.defaultValue }
                     placeholder={ props.name } 

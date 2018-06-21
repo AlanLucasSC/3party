@@ -12,8 +12,9 @@ import Modal from './modal/modal'
 export default props => (
     <div>
         <Header />
-        <Service />
-        <Contact />
+        <br/>
+        <br/>
+        <br/>
         <Modal />
     </div>
 )

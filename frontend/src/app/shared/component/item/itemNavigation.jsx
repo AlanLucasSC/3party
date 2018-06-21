@@ -28,15 +28,6 @@ export default props => {
             return (
                 <ul className="navbar-nav text-uppercase ml-auto">
                     <li className="nav-item">
-                        <a className="nav-link js-scroll-trigger" href="#services">Serviços</a>
-                    </li>
-                    <li className="nav-item">
-                        <a className="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a>
-                    </li>
-                    <li className="nav-item">
-                        <a className="nav-link js-scroll-trigger" href="#about">Sobre</a>
-                    </li>
-                    <li className="nav-item">
                         <a className="nav-link" data-toggle="modal" data-target="#loginModal" href="#login">Login</a>
                     </li>
                     <li className="nav-item">
@@ -108,6 +99,14 @@ export default props => {
                             color="outline-warning" 
                             URL={ 'solicitation' } 
                             name="Solicitações" 
+                        />
+                    </li>
+                    <li className="nav-item">
+                        <A 
+                            style={ Margin } 
+                            color="outline-warning" 
+                            URL={ 'vendor/products' } 
+                            name="Cadastrar Produto" 
                         />
                     </li>
                     <li>
