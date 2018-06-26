@@ -6,10 +6,11 @@ const Message = (props) => {
     var response = 'Descupe, mas não há nenhuma resposta para essa pergunta'
 
     var test1, test2, test3;
-    test1 = new RegExp('fixo')
-    test2 = new RegExp('preço')
+    test1 = new RegExp('^(?=.*fixo)(?=.*preço).*$|^(?=.*constante)(?=.*preço).*$', 'im')
+    console.log(test1)
+    //test2 = new RegExp('preço')
 
-    if( test1.test(question) && test2.test(question) )
+    if( test1.test(question) )
         response = 'Os preços dos produtos/serviços são dados pelos nossos fornecedores podendo sofrer ajustes de orçamento.'
     
     test1 = new RegExp('itens')
