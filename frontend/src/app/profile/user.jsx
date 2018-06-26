@@ -16,12 +16,16 @@ class UserProfile extends React.Component{
     }
 
     render(){
+        var name = ''
+        if(this.props.user){
+            name = this.props.user.name
+        }
         return (
             <section className='bg-light' id="portfolio">
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-12">
-                            <h5 className="section-heading text-uppercase">Olá { this.props.name }</h5>
+                            <h5 className="section-heading text-uppercase">Olá { name }</h5>
                             <br/>
                         </div>
                     </div>
@@ -55,9 +59,9 @@ class UserProfile extends React.Component{
 
 //State
 const mapStateToProps = state => ({
-    name: state.login.user.data.name,
-    email: state.login.user.data.email,
-    information: state.login.user.data.information,
+    user: state.login.user.data,
+    //email: state.login.user.data.email,
+    //information: state.login.user.data.information,
 })
 
 //Actions

@@ -10,6 +10,10 @@ export const sendImage = (event) => {
         var bodyFormData = new FormData();
         bodyFormData.set('image', event.target.files[0]);
 
+        console.log(event.target)
+        console.log(event.target.files[0])
+        console.log(bodyFormData)
+
         axios({
             method: 'post',
             url: URL,

@@ -28,7 +28,9 @@ const Card = {
 class Cart extends React.Component{
     constructor(props){
         super(props)
-        this.props.solicitationsUser( this.props.user )
+
+        if(this.props.user)
+            this.props.solicitationsUser( this.props.user._id )
 
         var i = 0
 
@@ -60,7 +62,7 @@ class Cart extends React.Component{
 
 //State
 const mapStateToProps = state => ({
-    user: state.login.user.data._id,
+    user: state.login.user.data,
     solicitations: state.solicitation.solicitations,
     products: state.solicitation.products
 })

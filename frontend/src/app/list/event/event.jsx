@@ -38,8 +38,9 @@ class Events extends React.Component{
     constructor(props) {
         super(props)
 
-        this.toggle = this.toggle.bind(this);
-        this.props.loadEvents( this.props.user )
+        this.toggle = this.toggle.bind(this)
+        if(this.props.user)
+            this.props.loadEvents( this.props.user._id )
     }
 
     toggle( id ){
@@ -47,6 +48,9 @@ class Events extends React.Component{
     }
 
     render(){
+        var id
+        if(this.props.user)
+            id = this.props.user._id
         return (
             <section>
                 <div className="row container">
@@ -85,7 +89,7 @@ class Events extends React.Component{
                             <Button 
                                 color={ 'outline-success' }
                                 name={ 'Novo Evento' }
-                                click={ () => this.props.createEvent(this.props.user, this.props.name, this.props.date) }
+                                click={ () => this.props.createEvent( id, this.props.name, this.props.date) }
                             />
                         </Input>
                     </Collapse>
@@ -104,7 +108,7 @@ class Events extends React.Component{
 const mapStateToProps = state => ({
     name: state.event.name,
     date: state.event.date,
-    user: state.login.user.data._id,
+    user: state.login.user.data,
     events: state.event.events
 })
 

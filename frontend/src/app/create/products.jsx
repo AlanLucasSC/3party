@@ -31,6 +31,10 @@ class Product extends React.Component{
     }
 
     render(){
+        var vendor = ''
+        if(this.props.user){
+            vendor = this.props.user.vendor
+        }
         return(
             <section className="bg-light" id="portfolio">
                 <div className="container">
@@ -96,7 +100,7 @@ class Product extends React.Component{
                                                     status={ 'BUTTON' }
                                                     type={ 'button' }
                                                     color={ 'outline-success' }
-                                                    click={ () => this.props.createProduct(this.props.id, this.props.image, this.props.type, this.props.price, this.props.amount, this.props.desc, this.props.name, this.props.people) }
+                                                    click={ () => this.props.createProduct(vendor, this.props.image, this.props.type, this.props.price, this.props.amount, this.props.desc, this.props.name, this.props.people) }
                                                     style={ Margin }
                                                 > Salvar </Badges>
                                             </form>                       
@@ -115,7 +119,7 @@ class Product extends React.Component{
 
 //State
 const mapStateToProps = state => ({
-    id: state.login.user.data.vendor,
+    user: state.login.user.data,
     name: state.product.name,
     type: state.product.type,
     price: state.product.price,

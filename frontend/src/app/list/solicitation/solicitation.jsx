@@ -30,10 +30,15 @@ class Solicitation extends React.Component{
     constructor(props){
         super(props)
 
-        this.props.solicitationsVendor( this.props.user )
+        if( this.props.user )
+            this.props.solicitationsVendor( this.props.user.vendor )
     }
 
     render(){
+        var products
+        if( this.props.products ){
+            products = this.props.products
+        }
         return (
             <section>
                 <Navbar name="Solicitação" ID="solicitation">
@@ -48,7 +53,7 @@ class Solicitation extends React.Component{
                     Card={ Card } 
                     solicitations={ this.props.solicitations }
                     productSelected={ this.props.productSelected }
-                    products={ this.props.products }
+                    products={ products }
                     solicitationSelected={ this.props.solicitationSelected }
                     events={ this.props.events }
                     changeStatus={ this.props.changeStatus }
@@ -60,7 +65,7 @@ class Solicitation extends React.Component{
 
 //State
 const mapStateToProps = state => ({
-    user: state.login.user.data.vendor,
+    user: state.login.user.data,
     solicitations: state.solicitation.solicitations,
     products: state.solicitation.products,
     events: state.solicitation.events

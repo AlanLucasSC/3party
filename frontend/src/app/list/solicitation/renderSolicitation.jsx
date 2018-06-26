@@ -48,8 +48,8 @@ export class RenderSolicitation extends React.Component{
                         day = '0'+day
                     date = day+'/'+month+'/'+year
 
-                    if(value.status != 'NEGADO'){
-                        console.log(value)
+                    if(value.status != 'NEGADO' && this.props.products){
+                        this.props.products[ value.product ]
                         return (
                             <ListItem style={ Card } key={ value._id }>
                                 <div className="d-flex w-100 justify-content-between">
