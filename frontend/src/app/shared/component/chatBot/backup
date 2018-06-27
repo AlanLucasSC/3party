@@ -1,0 +1,131 @@
+import React from 'react'
+import ChatBot from 'react-simple-chatbot';
+
+const steps = [
+    {
+      id: '1',
+      message: 'Posso ajudar?',
+      trigger: '2',
+    },
+    {
+        id: '2',
+        options: [
+          { value: 1, label: 'SIM', trigger: '3' },
+        ],
+    },
+    {
+      id: '3',
+      options: [
+        { value: 1, label: 'Cliente', trigger: '10' },
+        { value: 2, label: 'Prestador de Serviço', trigger: '70'},
+      ],
+    },
+    {
+        id: '10',
+        options: [
+          { value: 1, label: 'Os preços estipulados são fixos?', trigger: '50' },
+          { value: 2, label: 'Os itens ofertados são os mesmos que estão expostos?', trigger: '51'},
+          { value: 3, label: 'Posso solicitar um cardápio específico?', trigger: '52'},
+          { value: 4, label: 'Como posso solicitar um orçamento?', trigger: '53'},
+          { value: 5, label: 'Mais...',trigger:'90'},
+        ],
+    },
+    {
+        id: '50',
+        message: 'Os preços dos produtos/serviços são dados pelos nossos fornecedores podendo sofrer ajustes de orçamento.',
+        trigger: '80',
+    },
+    {
+        id: '51',
+        message: 'Os itens possuem imagens meramente ilustrativas podendo ser personalizada por nossos fornecedores. ',
+        trigger: '80',
+    },
+    {
+        id: '52',
+        message: 'Sim, depende exclusivamente da empresa que você deseja solicitar o serviço.',
+        trigger: '80',
+    },
+    {
+        id: '53',
+        message: 'Deverá ser feito uma solicitação de orçamento após selecionar o item.',
+        trigger: '80',
+    },
+    {
+        id: '70',
+        options: [
+          { value: 1, label: 'Sou fornecedor e quero fazer parte da plataforma', trigger: '71' },
+          { value: 2, label: 'Os itens ofertados são os mesmos que estão expostos?', trigger: '72'},
+          { value: 5, label: 'Mais...',trigger:'90'},
+        ],
+    },
+    {
+        id: '71',
+        message: 'O Third Party é uma plataforma de comércio eletrônico para aquisição/venda de intens para casamento.',
+        trigger: '80',
+    },{
+        id: '72',
+       message: 'Sou fornecedor e quero fazer parte da plataforma.',
+       trigger: '80',
+    },
+    {
+        id: '90',
+        options: [
+            { value: 1, label: 'Como contratar o serviço utilizando a plataforma?', trigger: '91' },
+            { value: 2, label: 'Tem como contratar um evento para hoje?', trigger: '92'},
+            { value: 3, label: 'Quais itens são oferecidos na plataforma?', trigger: '93'},
+            { value: 4, label: 'Para entrar no Third Party pago alguma taxa?', trigger: '94'},
+            { value: 5, label: 'Voltar',trigger:'10'},
+          ],
+    },
+    {
+       id: '91',
+       message: 'Para participar do Third Party não paga nada',
+       trigger : '80',
+    },
+    {
+        id: '92',
+        message: 'Para contratar algum item de festa sendo produto/serviço precisa de pelo menos 7 dias',
+        trigger : '80',
+     },
+     {
+        id: '93',
+        message: 'Os itens de festas oferecidos pelos fornecedores são divididas em categorias como: Buffet; Decoração; Bebida; Equipe de Som & Animação; Fotografia; Equipe de Segurança; Lembranças e artesanatos; Serviço de confeitaria; Salão de festa; Salão de Beleza; Animadores de Festa',
+        trigger : '80',
+     },
+     {
+        id: '94',
+        message: 'Você deve: cadastrar, selecionar os itens, enviar solicitação, aguarda resposta e finalizar a compra',
+        trigger : '80',
+     },
+    {
+        id: '80',
+       message: 'Ainda possui dúvidas?',
+       trigger : '81',
+    },
+    {
+        id: '81',
+        options:[
+            { value: 1, label: 'Sim', trigger: '10' },
+            { value: 2, label: 'Não', trigger: '83'},
+            { value: 3, label: 'Outras dúvidas', trigger: '82'},
+
+        ]
+    },
+    {
+       id: '82',
+       message: 'Entre em contato conosco pelo thirdparty@gmail.com'
+    },
+    {
+        id: '83',
+        message: 'Trabalhamos para melhor atender, até logo...'
+     },
+
+]
+
+export default () => (
+    <div id="chatbot">
+        <ChatBot
+            steps={ steps }
+        />
+    </div>
+)

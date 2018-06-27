@@ -6,21 +6,58 @@ const Message = (props) => {
     var response = 'Descupe, mas não há nenhuma resposta para essa pergunta'
 
     var test1, test2, test3;
-    test1 = new RegExp('^(?=.*fixo)(?=.*preço).*$|^(?=.*constante)(?=.*preço).*$', 'im')
-    console.log(test1)
+    test1 = new RegExp('^(?=.*fixo)(?=.*preço).*$|^(?=.*constante)(?=.*preço).*$|^(?=.*preço)(?=.*produto).*$', 'im')
+    
     //test2 = new RegExp('preço')
 
     if( test1.test(question) )
-        response = 'Os preços dos produtos/serviços são dados pelos nossos fornecedores podendo sofrer ajustes de orçamento.'
+        response = 'Os preços dos produtos/serviços são inseridos pelos nossos fornecedores podendo sofrer ajustes de orçamento.'
     
-    test1 = new RegExp('itens')
-    test2 = new RegExp('vendido')
-    test3 = new RegExp('exposto')
+test1 = new RegExp('^(?=.*produto)(?=.*vendido).*$|^(?=.*produto)(?=.*exposto).*$|^(?=.*item)(?=.*vendido).*$', 'im')
 
-    if( ( test1.test(question) && test2.test(question) ) || test1.test(question) && test3.test(question) )
+
+    if( test1.test(question))
         response = 'Os itens possuem imagens meramente ilustrativas podendo ser personalizada por nossos fornecedores.'
 
-    
+test1 = new RegExp('^(?=.*produto)(?=.*solicitar).*$|^(?=.*produto)(?=.*solicito).*$|^(?=.*solicitar)(?=.*serviço).*$', 'im')
+
+    if( test1.test(question))
+        response = 'Você poderá solicitar produtos/serviços únicos, porém depende exclusivamente do fornecedor aceitar.'
+
+test1 = new RegExp('^(?=.*solicitar)(?=.*orçamento).*$|^(?=.*solicito)(?=.*orçamento).*$|^(?=.*orçamento).*$', 'im')
+
+    if( test1.test(question))
+        response = 'Deverá ser feito uma solicitação de orçamento após selecionar o item.'
+
+test1 = new RegExp('^(?=.*third).*$|^(?=.*party).*$', 'im')
+console.log(test1)
+    if( test1.test(question))
+        response = 'O Third Party é uma plataforma de comércio eletrônico para aquisição/venda de intens para casamento.'
+
+test1 = new RegExp('^(?=.*fornecedor)(?=.*entrar).*$|^(?=.*fornecedor)(?=.*parte).*$|^(?=.*fornecedor)(?=.*produto).*$', 'im')
+
+        if( test1.test(question))
+            response = 'Entre em contato pelo thirdparty@gmail.com'
+
+test1 = new RegExp('^(?=.*passo)(?=.*comprar).*$|^(?=.*fazer)(?=.*comprar).*$|^(?=.*faço)(?=.*comprar).*$', 'im')
+
+      if( test1.test(question))
+          response = 'Você deve: cadastrar, selecionar os itens, enviar solicitação, aguarda resposta e finalizar a compra. '
+
+test1 = new RegExp('^(?=.*tipo)(?=.*produto).*$|^(?=.*categoria).*$|^(?=.*tipo)(?=.*serviço).*$', 'im')
+
+      if( test1.test(question))
+          response = 'Os itens de festas oferecidos pelos nossos parceiros são divididos em categorias como: Buffet; Decoração; Bebida; Equipe de Som & Animação; Fotografia; Equipe de Segurança; Lembranças e artesanatos; Serviço de confeitaria; Salão de festa; Salão de Beleza; Animadores de Festa;'
+
+test1 = new RegExp('^(?=.*pagar)(?=.*taxa).*$|^(?=.*taxa).*$|^(?=.*pagar)(?=.*valor).*$', 'im')
+      if( test1.test(question))
+        response = 'Para participar do Third Party não paga nada.'
+
+test1 = new RegExp('^(?=.*contratar)(?=.*evento).*$|^(?=.*festa).*$|^(?=.*hoje)(?=.*contrato).*$', 'im')
+      if( test1.test(question))
+          response = 'Para contratar algum item de festa sendo produto/serviço precisa de pelo menos 7 dias.'
+        
+
     return (
         <div className="text-dark">
             { response }
@@ -34,7 +71,7 @@ export default props => {
     var steps = [
         {
             id: '1',
-            message: 'Qual é a sua pergunta?',
+            message: 'Olá, Eu sou o Third. Como posso ajudar?',
             trigger: '2',
         },
         {
