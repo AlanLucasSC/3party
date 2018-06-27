@@ -16,7 +16,7 @@ export default props => (
     <div>
         <Header />
         <br/>
-        <br/>
+        <About />
         <br/>
         
         <Modal />

@@ -29,7 +29,7 @@ const FooterCss = {
     left: 0,
     bottom: 5,
     width: 98+'%',
-    color: 'white',
+    color: '#fed136',
     textAlign: 'right',
     marginLeft: 90+'%'
 }
@@ -49,9 +49,9 @@ class Layout extends React.Component {
                 <Navigation userEmail={ this.props.email } logout={ this.props.doLogout }/>
                 { this.props.children }
                 <div className="btn-group dropup" style={ FooterCss }>
-                    <button type="button" className="btn btn-secondary dropdown-toggle" onClick={ ToogleChat }>
-                        Ajuda
-                    </button>
+                    <i class="fa fa-info-circle fa-5x" aria-hidden="true" onClick={ ToogleChat }> 
+                        
+                    </i>
                 </div>
                 <div id="drop" style={ FooterDropUp }>
                     <Chat />

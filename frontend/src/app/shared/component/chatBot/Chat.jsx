@@ -1,5 +1,18 @@
 import React from 'react'
 import ChatBot from 'react-simple-chatbot';
+import { ThemeProvider } from 'styled-components';
+
+const theme = {
+    background: '#f5f8fb',
+    fontFamily: 'Helvetica Neue',
+    headerBgColor: '#fed136',
+    headerFontColor: '#261B03',
+    headerFontSize: '15px',
+    botBubbleColor: '#fed136',
+    botFontColor: '#261B03',
+    userBubbleColor: '#fff',
+    userFontColor: 'grey',
+  };
 
 const Message = (props) => {
 
@@ -93,7 +106,7 @@ export default props => {
         },
         {
             id: '4',
-            message: 'Você deseja realizar alguma outra pergunta?',
+            message: 'Você deseja fazer outra pergunta?',
             trigger: '5',
         },
         {
@@ -114,12 +127,20 @@ export default props => {
             end: true
         },
     ]
+    const ThemedExample = () => (
+        <ThemeProvider theme={theme}>
+          <ChatBot steps={steps} />;
+        </ThemeProvider>
+      );
 
     return (
         <div id="chatbot">
+        <ThemeProvider theme={theme}>
             <ChatBot
+            
                 steps={ steps }
             />
+        </ThemeProvider>
         </div>
     )
 }

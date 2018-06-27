@@ -40,6 +40,7 @@
     "home": "git+https://github.com/AlanLucasSC/home.git",
     "react-scripts": "1.1.4",
     "react-simple-chatbot": "^0.3.1",
-    "rxjs": "^5.5.8"
+    "rxjs": "^5.5.8",
+    "styled-components": "^3.3.3"
   }
 }
