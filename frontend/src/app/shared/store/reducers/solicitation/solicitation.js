@@ -21,7 +21,7 @@ export default (state = INITIAL_STATE, action) => {
             var products = state.products
             var id = action.payload._id
             //console.log(action.payload)
-            console.log(products)
+            //console.log(products)
             if(id !== undefined && action.payload !== undefined){
                 products[id] = action.payload
             }

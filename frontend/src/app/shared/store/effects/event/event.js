@@ -44,9 +44,9 @@ export const createEvent = (user, name, date) => {
 
 export const loadEvents = (user) => {
     return (dispatch) => {
-        console.log(URL+'?id='+user)
+        console.log(URL+'?user='+user)
         const request = axios
-            .get(URL+'?id='+user)
+            .get(URL+'?user='+user)
             .then(function (resp) {
                 return dispatch({
                     type: '[EVENT] LOAD_EVENTS_SUCCESS',

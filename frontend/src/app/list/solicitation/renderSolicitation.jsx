@@ -141,7 +141,7 @@ export const Information = props => {
 }
 
 export const Adress = props => {
-    console.log(props.productAdress)
+    //console.log(props.productAdress)
     if(props.productAdress[0] !== undefined){
         return (
             <div className="col-sm-4">

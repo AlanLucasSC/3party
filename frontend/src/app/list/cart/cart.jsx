@@ -12,7 +12,7 @@ import { Column } from '../../shared/component/column/column'
 import { Alert } from '../../shared/component/alert/alert'
 
 //Effects
-import { solicitationsUser, productSelected, solicitationSelected, changeStatus } from '../../shared/store/effects/solicitation/solicitation'
+import { solicitationsUser, productSelected, solicitationSelected, changeStatus, events } from '../../shared/store/effects/solicitation/solicitation'
 
 import { Render } from './render'
 
@@ -28,6 +28,9 @@ const Card = {
 class Cart extends React.Component{
     constructor(props){
         super(props)
+
+        //console.log(this.props.eventId)
+        var event = this.props.events( this.props.eventId )
 
         if(this.props.user)
             this.props.solicitationsUser( this.props.user._id )
@@ -58,19 +61,21 @@ class Cart extends React.Component{
             </section>
         )
     }
-}
+} 
 
 //State
 const mapStateToProps = state => ({
     user: state.login.user.data,
     solicitations: state.solicitation.solicitations,
-    products: state.solicitation.products
+    products: state.solicitation.products,
+    eventId: state.event.selectedID
 })
 
 //Actions
 const mapDispatchToProps = dispatch => bindActionCreators({
     solicitationsUser,
-    productSelected
+    productSelected,
+    events
 }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(Cart)

@@ -32,12 +32,12 @@ const Message = (props) => {
     test1 = new RegExp('^(?=.*third).*$|^(?=.*party).*$', 'im')
 
     if( test1.test(question))
-        response = 'O Third Party é uma plataforma de comércio eletrônico para aquisição/venda de intens para casamento.'
+        response = 'O Third Party é uma plataforma de comércio eletrônico para aquisição/venda de itens para casamento.'
 
     test1 = new RegExp('^(?=.*fornecedor)(?=.*entrar).*$|^(?=.*fornecedor)(?=.*parte).*$|^(?=.*fornecedor)(?=.*produto).*$|^(?=.*vender)(?=.*produto).*$', 'im')
 
     if( test1.test(question))
-        response = 'Entre em contato pelo thirdparty@gmail.com'
+        response = 'Entre em contato com thirdparty@gmail.com'
 
     test1 = new RegExp('^(?=.*passo)(?=.*comprar).*$|^(?=.*fazer)(?=.*comprar).*$|^(?=.*faço)(?=.*comprar).*$', 'im')
 
@@ -79,7 +79,7 @@ export default props => {
             validator: (value) => {
                 if (isNaN(value)) {
                     question = value
-                    console.log(question)
+                    //console.log(question)
                 }
                 return true;
               },

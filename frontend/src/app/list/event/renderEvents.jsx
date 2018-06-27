@@ -69,7 +69,7 @@ export const RenderEvents = props => {
                 )
             }
         )
-        console.log(events)
+        //console.log(events)
         return (
             <ListGroup >
                 { events }

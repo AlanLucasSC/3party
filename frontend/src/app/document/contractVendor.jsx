@@ -19,7 +19,7 @@ class ContractVendor extends React.Component{
     constructor(props){
         super(props)
 
-        console.log(this.props.contractAccept)
+        //console.log(this.props.contractAccept)
 
         if(this.props.contractAccept === 'ACEITO'){
             this.props.redirect('', 'VENDOR')
