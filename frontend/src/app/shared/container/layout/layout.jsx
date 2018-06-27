@@ -7,9 +7,36 @@ import { bindActionCreators } from 'redux'
 import Navigation from '../../component/navigation/navigation'
 import Footer from '../../component/footer/footer'
 import { doLogout } from '../../store/actions/auth/login'
+import Chat from '../../component/chatBot/Chat'
 
 //Teste -> excluir depois o import, no mapDispatchToProps e no render
 import { products } from '../../store/effects/service/service'
+
+
+const FooterDropUp = {
+    position: 'fixed',
+    left: 0,
+    bottom: 60+'px',
+    width: 98+'%',
+    color: 'white',
+    textAlign: 'right',
+    marginLeft: 70+'%',
+    display: 'none'
+}
+
+const FooterCss = {
+    position: 'fixed',
+    left: 0,
+    bottom: 5,
+    width: 98+'%',
+    color: 'white',
+    textAlign: 'right',
+    marginLeft: 90+'%'
+}
+
+const ToogleChat = () => {
+    $('#drop').toggle()
+}
 
 class Layout extends React.Component {
     constructor(props) {
@@ -21,6 +48,14 @@ class Layout extends React.Component {
             <div>
                 <Navigation userEmail={ this.props.email } logout={ this.props.doLogout }/>
                 { this.props.children }
+                <div className="btn-group dropup" style={ FooterCss }>
+                    <button type="button" className="btn btn-secondary dropdown-toggle" onClick={ ToogleChat }>
+                        Ajuda
+                    </button>
+                </div>
+                <div id="drop" style={ FooterDropUp }>
+                    <Chat />
+                </div>
                 <Footer />
             </div>
         )

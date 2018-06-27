@@ -69,7 +69,7 @@ export default props => {
                         />
                     </li>
                     <li className="nav-item">
-                        <a href="cart.html">
+                        <a href="http://localhost:8008/#/cart">
                             <i className="fa fa-shopping-bag fa-2x" style={ Margin } aria-hidden="true"></i>
                         </a>
                     </li>
