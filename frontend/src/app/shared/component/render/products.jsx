@@ -76,7 +76,7 @@ export const Products = props => {
                                         marginTop: 10+'px'
                                     } }
                                     click={ () => Solicitation( value._id ) }
-                                > Solicitar </Badges>
+                                > Solicitar Orçamento</Badges>
                             </div>
                             <div className="portfolio-caption" id={ "caption_"+value._id }>
                                 <h4> { value.name } </h4>
