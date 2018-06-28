@@ -13,7 +13,7 @@ export default props => (
                     <ul className="timeline">
                         <li>
                             <div className="timeline-image">
-                                <img className="rounded-circle img-fluid" src="assets/img/logos/logoBrancoEdit.png" alt=""/>
+                                <img className="rounded-circle img-fluid" src="assets/img/logos/thyrd.jpg" alt=""/>
                             </div>
                             <div className="timeline-panel">
                                 <div className="timeline-heading">
@@ -27,7 +27,7 @@ export default props => (
                         </li>
                         <li className="timeline-inverted">
                             <div className="timeline-image">
-                                <img className="rounded-circle img-fluid" src="assets/img/about/2.jpg" alt=""/>
+                                <img className="rounded-circle img-fluid" src="assets/img/about/missao.jpg" alt=""/>
                             </div>
                             <div className="timeline-panel">
                                 <div className="timeline-heading">
@@ -41,7 +41,7 @@ export default props => (
                         </li>
                         <li>
                             <div className="timeline-image">
-                                <img className="rounded-circle img-fluid" src="assets/img/about/3.jpg" alt=""/>
+                                <img className="rounded-circle img-fluid" src="assets/img/about/visao.jpg" alt=""/>
                             </div>
                             <div className="timeline-panel">
                                 <div className="timeline-heading">
@@ -55,7 +55,7 @@ export default props => (
                         </li>
                         <li className="timeline-inverted">
                             <div className="timeline-image">
-                                <img className="rounded-circle img-fluid" src="assets/img/about/4.jpg" alt=""/>
+                                <img className="rounded-circle img-fluid" src="assets/img/about/time.jpg" alt=""/>
                             </div>
                             <div className="timeline-panel">
                                 <div className="timeline-heading">
@@ -63,7 +63,7 @@ export default props => (
                                     <h4 className="subheading">Quatro membros</h4>
                                 </div>
                                 <div className="timeline-body">
-                                    <p className="text-muted">Hoje, em 27/06/2018, somos uma equipe de desenvolvimento composta por quatro membros de desenvolvedores. Buscando inserir novas tendências tecnológicas para melhor a experiência de nossos usuários.</p>
+                                    <p className="text-muted">Hoje, em 27/06/2018, somos uma equipe de desenvolvimento composta por quatro membros de desenvolvedores. Buscando inserir novas tendências tecnológicas para melhorar a experiência de nossos usuários.</p>
                                 </div>
                             </div>
                         </li>
