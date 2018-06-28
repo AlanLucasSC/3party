@@ -2,8 +2,10 @@ const restful = require('node-restful')
 const mongoose = restful.mongoose
 
 const solicitation = new mongoose.Schema({
+    event: { type: String, required: true },
     vendor: { type: String, required: true },
     product: { type: String, required: true },
+    comment: { type: String, required: false, default: '' },
     coupon: { type: Number, required: false },
     amount: { type: Number, required: false },
     people: { type: Number, required: false },

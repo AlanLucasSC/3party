@@ -60,14 +60,26 @@ export class RenderSolicitation extends React.Component{
                                         <Input
                                             type= { 'number' }
                                             ID={ 'div' }
-                                            id={ 'price' }
+                                            id={ 'price_'+value._id }
                                             description={ 'Preço' }
                                             name={ 'Preço' }
-                                            onChange={ () => console.log('Ba') }
+                                            onChange={ () => console.log('') }
                                             defaultValue= { this.props.products[ value.product ].price }
                                             className={ '' }
                                         >
                                             <span className="input-group-text" id="basic-addon1"> Preço da Solicitação </span>
+                                        </Input >
+                                        <Input
+                                            type= { 'text' }
+                                            ID={ '' }
+                                            id={ 'comment_'+value._id }
+                                            description={ 'Comentário' }
+                                            name={ 'Comentário' }
+                                            onChange={ () => console.log('') }
+                                            defaultValue= { ' ' }
+                                            className={ '' }
+                                        >
+                                            <span className="input-group-text" id="basic-addon1"> Comentário </span>
                                         </Input >
                                         <Badges 
                                             type={ '' }
@@ -79,7 +91,7 @@ export class RenderSolicitation extends React.Component{
                                             type={ 'button' }
                                             color={ 'outline-success' }
                                             status={ value.status }
-                                            click={ () => this.props.changeStatus(value._id, 'ACEITO', $('#price').val()) }
+                                            click={ () => this.props.changeStatus(value._id, 'ACEITO', $('#price_'+value._id).val()) }
                                             style={ Margin }
                                         > Aceitar </Badges>
                                         <Badges 

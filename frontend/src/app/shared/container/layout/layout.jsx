@@ -49,7 +49,7 @@ class Layout extends React.Component {
                 <Navigation userEmail={ this.props.email } logout={ this.props.doLogout }/>
                 { this.props.children }
                 <div className="btn-group dropup" style={ FooterCss }>
-                    <i class="fa fa-info-circle fa-5x" aria-hidden="true" onClick={ ToogleChat }> 
+                    <i className="fa fa-info-circle fa-5x" aria-hidden="true" onClick={ ToogleChat }> 
                         
                     </i>
                 </div>
