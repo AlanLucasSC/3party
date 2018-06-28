@@ -2,6 +2,7 @@ import React from 'react'
 import ChatBot from 'react-simple-chatbot';
 import { ThemeProvider } from 'styled-components';
 
+
 const theme = {
     background: '#f5f8fb',
     fontFamily: 'Helvetica Neue',
@@ -134,10 +135,11 @@ export default props => {
       );
 
     return (
+        
         <div id="chatbot">
         <ThemeProvider theme={theme}>
             <ChatBot
-            
+                placeholder="Por favor, digite sua mensagem"
                 steps={ steps }
             />
         </ThemeProvider>
