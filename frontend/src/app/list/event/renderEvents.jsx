@@ -57,10 +57,9 @@ export const RenderEvents = props => {
                                 <Badges 
                                     type={ 'button' }
                                     color={ 'outline-danger' }
-                                    status={ value.status }
-                                    click={ () => console.log('Teste') }
+                                    status={ 'FECHADO' }
+                                    click={ () => props.removeEvent(value._id) }
                                     style={ Margin }
-                                    readonly
                                 > Cancelar </Badges>
                             </small>
                         </div>

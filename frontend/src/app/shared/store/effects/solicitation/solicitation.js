@@ -94,13 +94,14 @@ export const solicitationSelected = (id) => {
     } 
 }
 
-export const changeStatus = (id, status, price) => {
+export const changeStatus = (id, status, price, comment) => {
     return (dispatch) => {
         //console.log(id)
         console.log(price)
         var change = {
             status: status,
-            price: price
+            price: price,
+            comment: comment
         }
         //console.log(change)
         const putRequest = axios
@@ -111,4 +112,49 @@ export const changeStatus = (id, status, price) => {
                 }
             )
     } 
+}
+
+export const deleteSolicitation = (id) => {
+    return (dispatch) => {
+        console.log(id)
+        var eventID
+        const getRequest = axios
+            .get(URL+'?_id='+id)
+            .then(
+                resp => {
+                    eventID = resp.data[0].event
+                    console.log(eventID)
+                    const getEvent = axios.get(URL_Event+'?_id='+eventID)
+                        .then(
+                            event => {
+                                //console.log( event.data[0].solicitation )
+                                for(var i = 0; i < event.data[0].solicitation.length; i++){
+                                    if( event.data[0].solicitation[i].id === id ){
+                                        //console.log( event.data[0].solicitation[i].id )
+                                        event.data[0].solicitation.splice(i, i + 1)
+                                    }
+                                }
+                                //console.log( event.data[0] )
+                                const putRequest = axios
+                                    .put(URL_Event+'/'+eventID, event.data[0])
+                                    .then(
+                                        ( response ) => {
+                                            console.log( response )
+                                        }
+                                    )
+                            }
+                        )
+
+                }
+            )
+        //console.log(eventID)
+        const putRequest = axios
+            .delete(URL+'/'+id)
+            .then(
+                response => {
+                    return dispatch( reload() )
+                }
+            )
+        
+    }
 }

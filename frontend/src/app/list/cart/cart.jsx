@@ -12,7 +12,14 @@ import { Column } from '../../shared/component/column/column'
 import { Alert } from '../../shared/component/alert/alert'
 
 //Effects
-import { solicitationsUser, productSelected, solicitationSelected, changeStatus, events } from '../../shared/store/effects/solicitation/solicitation'
+import { 
+    solicitationsUser, 
+    productSelected, 
+    solicitationSelected, 
+    changeStatus, 
+    events,
+    deleteSolicitation 
+} from '../../shared/store/effects/solicitation/solicitation'
 
 import { Render } from './render'
 
@@ -56,7 +63,12 @@ class Cart extends React.Component{
                 <hr style={ Margin }/>
                 <div className="row">
                     <div className="col-md-8">
-                        <Render eventId={ this.props.eventId } solicitations={ this.props.solicitations } products={ this.props.products }/>
+                        <Render 
+                            eventId={ this.props.eventId } 
+                            solicitations={ this.props.solicitations } 
+                            products={ this.props.products }
+                            deleteSolicitation={ this.props.deleteSolicitation }
+                        />
                     </div>
                 </div>
             </section>
@@ -76,7 +88,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => bindActionCreators({
     solicitationsUser,
     productSelected,
-    events
+    events,
+    deleteSolicitation
 }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(Cart)

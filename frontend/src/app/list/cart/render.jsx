@@ -53,22 +53,27 @@ export class Render extends React.Component{
                                             style={ Margin }
                                             readonly
                                         > { value.status } </Badges>
-                                        <Badges 
-                                            type={ 'button' }
-                                            color={ 'outline-success' }
-                                            status={ value.status }
-                                            click={ () => this.props.changeStatus(value._id, 'ACEITO', $('#price').val()) }
-                                            style={ Margin }
-                                        > Adicionar no carrinho </Badges>
-                                        <Badges 
-                                            type={ 'button' }
-                                            color={ 'outline-danger' }
-                                            status={ value.status }
-                                            click={ () => this.props.changeStatus(value._id, 'NEGADO', 0.0) }
-                                            style={ Margin }
-                                            readonly
-                                        > Cancelar </Badges>
+                                        <Visible status={ value.status } validate={ 'NEGADO' } >
+                                            <Badges 
+                                                type={ 'button' }
+                                                color={ 'outline-success' }
+                                                status={ value.status }
+                                                click={ () => this.props.changeStatus(value._id, 'ACEITO', $('#price').val()) }
+                                                style={ Margin }
+                                            > Adicionar no carrinho </Badges>
+                                            <Badges 
+                                                type={ 'button' }
+                                                color={ 'outline-danger' }
+                                                status={ value.status }
+                                                click={ () => this.props.deleteSolicitation(value._id) }
+                                                style={ Margin }
+                                                readonly
+                                            > Cancelar </Badges>
+                                        </Visible>
                                     </small>
+                                </div>
+                                <div>
+                                    <Comment comment={ value.comment } />
                                 </div>
                                 <div className="row">
                                     <div className="col-md-4">
@@ -99,6 +104,30 @@ export class Render extends React.Component{
             return false
         }
         
+    }
+}
+
+export const Comment = props => {
+    if( props.comment ){
+        return (
+            <p className="mb-1 h6">
+                <br/>
+                { 'Feedback' }: { props.comment }
+                <br/>
+            </p>
+        )
+    } else {
+        return false
+    }
+}
+
+export const Visible = props => {
+    if( props.status !== props.validate ){
+        return (
+            props.children
+        )
+    } else {
+        return false
     }
 }
 

@@ -91,14 +91,14 @@ export class RenderSolicitation extends React.Component{
                                             type={ 'button' }
                                             color={ 'outline-success' }
                                             status={ value.status }
-                                            click={ () => this.props.changeStatus(value._id, 'ACEITO', $('#price_'+value._id).val()) }
+                                            click={ () => this.props.changeStatus(value._id, 'ACEITO', $('#price_'+value._id).val(), $('#comment_'+value._id).val()) }
                                             style={ Margin }
                                         > Aceitar </Badges>
                                         <Badges 
                                             type={ 'button' }
                                             color={ 'outline-danger' }
                                             status={ value.status }
-                                            click={ () => this.props.changeStatus(value._id, 'NEGADO', 0.0) }
+                                            click={ () => this.props.changeStatus(value._id, 'NEGADO', 0.0, $('#comment_'+value._id).val()) }
                                             style={ Margin }
                                             readonly
                                         > Cancelar </Badges>

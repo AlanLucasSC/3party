@@ -19,7 +19,11 @@ import { RenderEvents } from './renderEvents'
 import { changeName, changeDate } from '../../shared/store/actions/event/event'
 
 //Effects
-import { createEvent, loadEvents } from '../../shared/store/effects/event/event'
+import { 
+    createEvent, 
+    loadEvents,
+    removeEvent 
+} from '../../shared/store/effects/event/event'
 
 
 const Margin = {
@@ -95,7 +99,7 @@ class Events extends React.Component{
                     </Collapse>
                 </Navbar>
                 <hr style={ Margin }/>
-                <RenderEvents style={ Card } events={ this.props.events }/>
+                <RenderEvents removeEvent={ removeEvent } style={ Card } events={ this.props.events }/>
                 <section>
                     
                 </section>
@@ -117,7 +121,8 @@ const mapDispatchToProps = dispatch => bindActionCreators({
     changeName,
     changeDate,
     createEvent,
-    loadEvents
+    loadEvents,
+    removeEvent
 }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(Events)
