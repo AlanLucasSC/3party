@@ -35,6 +35,11 @@ export const Input = props => {
         )
     }
     if(props.defaultValue){
+        if(props.defaultValue === ' ')
+            var value = ''
+        else
+            var value = props.defaultValue    
+
         return (
             <div 
                 className={ "input-group mb-3 "+props.className } 
@@ -45,7 +50,7 @@ export const Input = props => {
                     type={ props.type } 
                     id={ props.id } 
                     className="form-control"
-                    defaultValue={ props.defaultValue }
+                    defaultValue={ value }
                     placeholder={ props.name } 
                     aria-describedby="basic-addon1"
                     onChange={ props.onChange }

@@ -5,3 +5,10 @@ export const redirect = (page, userType) => ({
         userType: userType
     }
 })
+
+export const reload = () => {
+    location.reload()
+    return {
+        type: '[APP] RELOAD'
+    }
+}

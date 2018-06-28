@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-import { redirect } from '../../actions/app/app.js'
+import { redirect, reload } from '../../actions/app/app.js'
 
 const URL = 'http://localhost:4009/api/solicitation'
 const URL_Product = 'http://localhost:4009/product'
@@ -97,7 +97,7 @@ export const solicitationSelected = (id) => {
 export const changeStatus = (id, status, price) => {
     return (dispatch) => {
         //console.log(id)
-        //console.log('Aqui')
+        console.log(price)
         var change = {
             status: status,
             price: price
@@ -107,7 +107,7 @@ export const changeStatus = (id, status, price) => {
             .put(URL_Soli+'/'+id, change)
             .then(
                 response => {
-                    //console.log(response)
+                    return dispatch( reload() )
                 }
             )
     } 

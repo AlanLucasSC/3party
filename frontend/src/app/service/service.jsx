@@ -27,6 +27,8 @@ class Service extends React.Component{
             this.props.redirect('/', this.props.userType)
         }
 
+        console.log(this.props.eventId)
+
         this.chosen = this.chosen.bind(this)
         this.props.products()
     }

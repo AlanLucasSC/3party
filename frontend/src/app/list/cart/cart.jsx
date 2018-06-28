@@ -37,9 +37,10 @@ class Cart extends React.Component{
 
         var i = 0
 
-        for(i = 0; i < this.props.solicitations.length; i++){
-            this.props.productSelected( this.props.solicitations[i].product )
-        }
+        if(this.props.solicitations[0])
+            for(i = 0; i < this.props.solicitations.length; i++){
+                this.props.productSelected( this.props.solicitations[i].product )
+            }
     }
 
     render(){
@@ -55,7 +56,7 @@ class Cart extends React.Component{
                 <hr style={ Margin }/>
                 <div className="row">
                     <div className="col-md-8">
-                        <Render solicitations={ this.props.solicitations } products={ this.props.products }/>
+                        <Render eventId={ this.props.eventId } solicitations={ this.props.solicitations } products={ this.props.products }/>
                     </div>
                 </div>
             </section>

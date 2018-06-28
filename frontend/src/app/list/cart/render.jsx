@@ -27,6 +27,8 @@ export class Render extends React.Component{
         if(this.props.solicitations){
             var solicitations = this.props.solicitations.map(
                 value => {
+                    console.log(value.event)
+                    console.log(this.props.eventId)
                     var date = new Date(value.date)
                     var year = date.getFullYear()
                     var month = date.getMonth() + 1
@@ -37,7 +39,7 @@ export class Render extends React.Component{
                         day = '0'+day
                     date = day+'/'+month+'/'+year
 
-                    if(value.status != 'NEGADO')
+                    if(value.event === this.props.eventId)
                         return (
                             <ListItem style={ Card } key={ value._id }>
                                 <div className="d-flex w-100 justify-content-between">
